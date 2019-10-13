@@ -127,7 +127,7 @@ I am only going to show isc-dhcp-server.
 Install it with yum.
 
 ```
-yum -y install dhcp
+yum -y install dhcp-server
 
 ```
 Next Choose the interface to have the dhcps-server on.
