@@ -46,4 +46,5 @@ systemctl start fail2ban
 Link:
 
 [Digital Ocean fail2ban centos](https://www.digitalocean.com/community/tutorials/how-to-protect-ssh-with-fail2ban-on-centos-7)
+
 [Fedora wiki guide to fail2ban](https://fedoraproject.org/wiki/Fail2ban_with_FirewallD)
