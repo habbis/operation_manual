@@ -79,8 +79,9 @@ GATEWAY=10.16.1.1
 DEVICE=ens7
 DNS1=1.1.1.1
 ZONE=internal
-
 ```
+# IP forwarding
+
 To allow ip forwarding create a new file unser ```/etc/sysctl.d/```
 
 ```
@@ -95,6 +96,8 @@ To enable ip forwarding.
 ```
 sysctl -p /etc/sysctl.d/ip_forward.conf
 ```
+# firewalld setup
+
 Then to create a firewall rule to allow ip masquerading berween the public and private interface.
 
 ```
@@ -120,6 +123,8 @@ Then reboot and verify the firewall rules
 firewall-cmd --list-all 
 firewall-cmd --list-all --zone=external
 ```
+# DHCP-server
+
 Then you also setup a dhcp server if you want like dnsmasq or isc-dhcp-server.
 
 I am only going to show isc-dhcp-server.
@@ -175,6 +180,7 @@ host fedora-node {
 	 hardware  ethernet 00:4g:8h:13:8h:3a;
 	 fixed-address 172.16.1.110;
  }
+```
 
 Then enable and start dhcp
 ```
