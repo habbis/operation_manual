@@ -48,8 +48,7 @@ UUID=21d47e65-8523-1a06-af22-6f121086f085
 ZONE=external
 
 ```
-
-The LAN interface
+ The LAN interface
 
 static config
 
@@ -80,6 +79,13 @@ DEVICE=ens7
 DNS1=1.1.1.1
 ZONE=internal
 ```
+If you user network manager you can user ```nmcli`` to start up ther interface after the config setup.
+```
+nmcli con load /etc/sysconfig/network-scripts/ifcfg-ens1
+nmcli con up 'System ens1'
+```
+
+
 # IP forwarding
 
 To allow ip forwarding create a new file unser ```/etc/sysctl.d/```
