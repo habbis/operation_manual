@@ -149,7 +149,7 @@ vi /etc/dhcp/dhcpd.conf
 Then change some options.
 ```
 option domain-name "yourdomain";
-option domain-name-servers ns1.yournameserver, ns2.yournameserver;
+option domain-name-servers 172.16.1.1, ns2.yournameserver;
 default-lease-time 3600; 
 max-lease-time 7200;
 authoritative;
@@ -180,8 +180,6 @@ Then enable and start dhcp
 ```
 systemctl start dhcpd
 systemctl enable dhcpd
-```
-
 ```
 
 Link:
