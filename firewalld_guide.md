@@ -191,3 +191,8 @@ firewall-cmd --direct --get-all-rules
 
 ```
 
+Links:
+
+[Firewalld Linode](https://www.linode.com/docs/security/firewalls/introduction-to-firewalld-on-centos/)
+
+
