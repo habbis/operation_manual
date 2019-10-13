@@ -122,7 +122,7 @@ To remove the rules, substitute --add with --remove. For example:
  firewall-cmd --zone=public --remove-masquerade
 ```
 
-$ Constructing a Ruleset with FirewallD
+# Constructing a Ruleset with FirewallD
 
 As an example, here is how you would use FirewallD to assign basic rules to your Linode if you were running a web server.
 
