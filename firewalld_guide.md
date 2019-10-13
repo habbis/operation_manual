@@ -97,10 +97,10 @@ sudo firewall-cmd --zone=public --remove-service=http --permanent
 # Allowing or Denying an Arbitrary Port/Protocol
 
 As an example: Allow or disable TCP traffic on port 12345.
-
-sudo firewall-cmd --zone=public --add-port=12345/tcp --permanent
-sudo firewall-cmd --zone=public --remove-port=12345/tcp --permanent
-
+```
+ firewall-cmd --zone=public --add-port=12345/tcp --permanent
+ firewall-cmd --zone=public --remove-port=12345/tcp --permanent
+```
 # Port Forwarding
 
 The example rule below forwards traffic from port 80 to port 12345 on the same server.
