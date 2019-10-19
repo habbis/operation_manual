@@ -22,9 +22,9 @@ To reload firewalld.
 firewall-cmd --relaod
 ```
 To list rules that are associated with the default zone
-
+```
 firewall-cmd --list-all
-
+```
 # Configuring Firewalld
 ```/usr/lib/FirewallD``` holds default configurations like default zones and common services. 
 Avoid updating them because those files will be overwritten by each firewalld package update.
