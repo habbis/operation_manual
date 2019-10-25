@@ -97,6 +97,10 @@ As an example, to enable or disable the HTTP service:
 sudo firewall-cmd --zone=public --add-service=http --permanent
 sudo firewall-cmd --zone=public --remove-service=http --permanent
 ```
+Adding more services to a oneliner.
+```
+sudo firewall-cmd --add-service={http,https,dns,ntp,freeipa-ldap,freeipa-ldaps} --permanent
+```
 
 # Allowing or Denying an Arbitrary Port/Protocol
 
