@@ -9,8 +9,16 @@ Then press `Ctrl+x` to boot using the modified config.
 Then if you have and encrypted hdd it will prompt you for the password
 and when at the command prompt use these commands to login to the system.
 
+If running SEllinux on the system remmember to create .autorelabel if you making anny 
+changes. 
+
 ```
 mount -o remount,rw /sysroot
 chroot /sysroot
-```
 
+```
+Then after anny changes 
+```
+cd 
+touch .autorelabel
+```
