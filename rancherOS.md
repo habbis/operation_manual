@@ -50,8 +50,14 @@ ssh_authorized_keys:
   - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCtrbOooF4bEBdymEB9N5jh2mDCLAmWO5TCh0gorNOWyC5htBAJ0gqHGdh6OHqg2wT5sLDSMQ/FrpaOIdW5ULitN3aL+LTNDEhrU9mHTsPTlU2Bh7Fl6pnanQp7peUiEzbi7W7jRaC/IwDQwZh1tvSX2sUOVk+0nz7MtJXiyp3gfexltvySrSCHPRe4zZRrMu9PZ/LiaSJ0NTyCP/xEDYhXgV3g0R6YqRxiaXBzi/8Y4EgAYx/upekvB8OnVxYKXt6B+2Gqx4K1/GribiqL6ymevDUja0DIXumD6POqohbtjB3b+yka2pFoydnB0hkquEo7J9aB41DIszyePjci3Ur3ncbWJkS1Z5nkaAlVCziO8jLbBaQnVxVjE7QIXvqGePQRsMV3u6E5jGeJDq1Ub8Ynm91aX6iwrj3POhGIlxcJMMQkxc+2o+I23xNY22aoUXt5j9B543U2Ygsq3I3JPtNLFJbnIFQQv0zpviqaCj7daDc58QK6AHoskuWMEnrsI2zXbJjCpxSiJp5eAtXHfkZT5n6JdEZrgWnke6+Bvtu43kLSLxhLG5fXNOgZhKpZLd5NOv2/tL1M8ir/OtFsWdAvtnE5zykK7EZ157/Pdv82afAaxcOwkjwHgNNTb4/TOI68GjPZubm3ue9Frzcdt3E6wb+XAduvW767dauDWuUqqQ==
 
 ```
+ Add a console in the cloud-config.
 
-To validate the config 
+```
+#cloud-config
+rancher:
+  console: debian
+```
+The command to validate the config 
 
 `sudo ros install -c cloud-config.yml`
 
@@ -59,8 +65,23 @@ If you want to install then
 
 `sudo ros install -c cloud-config.yml -d /dev/sda`
 
-To change to a more permanent console that does not change every reboot like the default busybox console.
+The way to change to a more permanent console that does not change every reboot like the default busybox console.
+
 `sudo ros console switch ubuntu`
+
+Listing Available Consoles
+```
+sudo ros console list
+disabled alpine
+disabled centos
+disabled debian
+current  default
+disabled fedora
+disabled ubuntu
+
+```
+
+
 
 
 
