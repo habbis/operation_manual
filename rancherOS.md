@@ -98,6 +98,7 @@ Link:
 
 [rancherOS-custom-console](https://rancher.com/docs/os/v1.x/en/installation/custom-builds/custom-console/#console-persistence)
 
+[RancherOS - Quick Start](https://rancher.com/docs/os/v1.x/en/quick-start-guide/)
 
 [RancherOS installing to hard disk - Automated Ramblings](https://sdbrett.com/BrettsITBlog/2017/01/rancheros-installing-to-hard-disk/)
 
