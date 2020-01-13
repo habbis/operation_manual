@@ -65,10 +65,6 @@ If you want to install then
 
 `sudo ros install -c cloud-config.yml -d /dev/sda`
 
-The way to change to a more permanent console that does not change every reboot like the default busybox console.
-
-`sudo ros console switch ubuntu`
-
 Listing Available Consoles
 ```
 sudo ros console list
@@ -80,6 +76,24 @@ disabled fedora
 disabled ubuntu
 
 ```
+
+The way to change to a more permanent console that does not change every reboot like the default busybox console.
+
+`sudo ros console switch ubuntu`
+
+
+Console persistence
+
+All consoles except the default (busybox) console are persistent. Persistent console means that the console container will remain the same and preserves changes made to its filesystem across reboots. If a container is deleted/rebuilt, state in the console will be lost except what is in the persisted directories.
+
+```
+/home
+/opt
+/var/lib/docker
+/var/lib/rancher
+
+```
+
 
 
 
