@@ -94,6 +94,10 @@ All consoles except the default (busybox) console are persistent. Persistent con
 
 ```
 
+Link:
+
+[rancher_custom-console](https://rancher.com/docs/os/v1.x/en/installation/custom-builds/custom-console/#console-persistence)
+
 
 
 
