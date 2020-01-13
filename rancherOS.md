@@ -51,4 +51,16 @@ ssh_authorized_keys:
 
 ```
 
+To validate the config 
+
+`sudo ros install -c cloud-config.yml`
+
+If you want to install then
+
+`sudo ros install -c cloud-config.yml -d /dev/sda`
+
+To change to a more permanent console that does not change every reboot like the default busybox console.
+`sudo ros console switch ubuntu`
+
+
 
