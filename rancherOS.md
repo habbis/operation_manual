@@ -57,11 +57,15 @@ ssh_authorized_keys:
 rancher:
   console: debian
 ```
-The command to validate the config 
+The command to validate the config
+
+`sudo ros config validate -i cloud-config.yml`
+
+Installing your cloud-config
 
 `sudo ros install -c cloud-config.yml`
 
-If you want to install then
+If you want to install to disk then
 
 `sudo ros install -c cloud-config.yml -d /dev/sda`
 
