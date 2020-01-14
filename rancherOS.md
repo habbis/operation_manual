@@ -61,9 +61,9 @@ The command to validate the config
 
 `sudo ros config validate -i cloud-config.yml`
 
-Installing your cloud-config
+To set settings after a install use cloud config
 
-`sudo ros install -c cloud-config.yml`
+`sudo ros config merge -i <your yaml file>`
 
 If you want to install to disk then
 
