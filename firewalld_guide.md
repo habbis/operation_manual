@@ -19,7 +19,7 @@ systemclt status firewalld
 ```
 To reload firewalld.
 ```
-firewall-cmd --relaod
+firewall-cmd --reload
 ```
 To list rules that are associated with the default zone
 ```
