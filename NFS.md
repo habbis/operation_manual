@@ -33,7 +33,7 @@ If you create an common group or user then that user or group can access the sha
 its not recommend or use the command $ chmod 777 
 
 The way to setup nfs shears should be the same on all Linux Performance Tools systems but on zfs have 
-inn build command to share linkt to note: ZFS dataset NFS shearing
+inn build command to share linkt to note: ZFS dataset NFS sharing
 
 ```
 $ vi /etc/exports 
