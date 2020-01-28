@@ -11,13 +11,13 @@ Manage Linux networking.
 
 ifupdown(via networking-manager), netplan(ubuntu), network-manager
 
-Setup
+Config setup.
 
 ifupdown
 
-sudo apt install -y ifupdown network-manager
+sudo apt install -y ifupdown network-manager.
 
-vim /etc/NetworkManager/NetworkManager.conf 
+`vim /etc/NetworkManager/NetworkManager.conf`
 
 It will look like this and remmember to add auto if you dont the inerface will not 
 enable networking at boot.
@@ -133,12 +133,6 @@ or panic mode
 
 `ifdown --all`
 
-
-
-
-- Debian 
-
-ifupdown, network-manager
 
 - Centos 
 networking-manager and for static can also via /etc/sysconfig/network-scripts/ifcfg-eth0 
