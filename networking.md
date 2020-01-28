@@ -136,5 +136,88 @@ or panic mode
 
 - Centos 
 networking-manager and for static can also via /etc/sysconfig/network-scripts/ifcfg-eth0 
+First set a host name either just edit ```/etc/hostanme``` manualy or ```hostnamectl```
+
+```
+vi /etc/hostname
+
+hostnamectl set-hostname your-new-hostname
+
+```
+
+Then you can set up the interfaces you have two ways either manualy add to /etc/sysconfig/network-scripts or using ```nmtui/nmcli```
+```
+vi /etc/sysconfig/network-scripts/ifcfq-ens1
+
+```
+The uid is added when you create a interface in nmtui/nmcli.
+
+```
+BOOTPROTO=static
+DEVICE=ens3
+ONBOOT=yes
+IPADDR="<PUBLIC_IP>"
+NETMASK="<PUBLIC_NETMASK>"
+GATEWAY="<PUBLIC_DEFAULT_GATEWAY>"
+DNS1="<PUBLIC_DNS>
+NAME="System ens3"
+ZONE=external`
+
+```
+dhcp config.
+```
+TYPE=Ethernet
+DEVICE=ens3
+ONBOOT=yes
+BOOTPROTO=dhcp
+IPV6INIT=yes
+IPV6_AUTOCONF=yes
+PROXY_METHOD=none
+BROWSER_ONLY=no
+DEFROUTE=yes
+IPV4_FAILURE_FATAL=no
+IPV6_DEFROUTE=yes
+IPV6_FAILURE_FATAL=no
+NAME="System ens3"
+UUID=21d47e65-8523-1a06-af22-6f121086f085
+ZONE=external
+
+```
+ The LAN interface
+
+static config
+
+```
+BOOTPROTO=static
+ONBOOT=yes
+IPADDR="<PRIVATE_IP>"
+NETMASK="<PRIVATE_NETMASK>"
+DNS1="<PUBLIC_DNS>"
+
+```
+dhcp config 
+```
+TYPE=Ethernet
+PROXY_METHOD=none
+BROWSER_ONLY=no
+BOOTPROTO=none
+DEFROUTE=yes
+IPV4_FAILURE_FATAL=no
+IPV6INIT=no
+NAME="system ens7"
+UUID=1cd0b2cc-2d47-4dfb-9eb1-7a45895e90c0
+ONBOOT=yes
+IPADDR=10.16.1.1
+PREFIX=24
+GATEWAY=10.16.1.1
+DEVICE=ens7
+DNS1=1.1.1.1
+ZONE=internal
+```
+If you user network manager you can user ```nmcli`` to start up ther interface after the config setup.
+```
+nmcli con load /etc/sysconfig/network-scripts/ifcfg-ens1
+nmcli con up 'System ens1'
+```
 
 
