@@ -80,6 +80,16 @@ To remove a logical volume, make sure it is not in use anymore. Then simply issu
 $ lvremove myVirtualGroup1/myLogicalVolume1
 ```
 
+Thin lvm pool
+
+vgcreate 
+
+`lvcreate -L 15G --thinpool poolname vg-name`
+
+Creating Thin Volumes
+
+`lvcreate -V 5G --thin -n yourvolname vg-name/poolname`
+
 List of PV commands
 
 •     pvchange — Change attributes of a Physical Volume.
