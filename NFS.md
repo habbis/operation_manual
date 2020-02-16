@@ -90,7 +90,13 @@ If you have ufw on the system you most open for nfs shearing.
 ```
 $ ufw allow nfs 
 ```
+## ZFS nfs share
 
+With zfs you only need to install nfs server and user the right zfs command to share a dataset.
+
+```
+sudo zfs set sharenfs=on yourpool/yourdataset
+```
 
 Other nfs server stuff 
 
@@ -191,6 +197,8 @@ Link centos7: https://www.howtoforge.com/tutorial/setting-up-an-nfs-server-and-c
 
 Link ubuntu 18.04:https://www.digitalocean.com/community/tutorials/how-to-set-up-an-nfs-mount-on-ubuntu-18-04
 
-Link for many Linux Performance Tools distos: https://www.tecmint.com/how-to-setup-nfs-server-in-linux/
+Link to setup nfs for distros: https://www.tecmint.com/how-to-setup-nfs-server-in-linux/
+
+Link to zfs nfs share: https://blog.programster.org/sharing-zfs-datasets-via-nfs
 
 
