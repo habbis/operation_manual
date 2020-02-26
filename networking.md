@@ -11,15 +11,15 @@ Manage Linux networking.
 
 ifupdown(via networking-manager), netplan(ubuntu), network-manager
 
-Config setup.
+Config setup
 
 ifupdown
 
-sudo apt install -y ifupdown network-manager.
+sudo apt install -y ifupdown network-manager
 
 `vim /etc/NetworkManager/NetworkManager.conf`
 
-It will look like this and remmember to add auto if you dont the inerface will not 
+It will look like this and remember to add auto if you dont the inerface will not 
 enable networking at boot.
 
 ```
