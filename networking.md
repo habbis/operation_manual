@@ -18,6 +18,8 @@ ifupdown
 sudo apt install -y ifupdown network-manager
 
 `vim /etc/NetworkManager/NetworkManager.conf`
+
+
 Will look like this
 
 ```
