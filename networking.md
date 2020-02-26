@@ -18,9 +18,7 @@ ifupdown
 sudo apt install -y ifupdown network-manager
 
 `vim /etc/NetworkManager/NetworkManager.conf`
-
-It will look like this and remember to add auto if you dont the inerface will not 
-enable networking at boot.
+Will look like this
 
 ```
 [main]
@@ -49,6 +47,11 @@ Then to setup the networking.
 `vim /etc/network/interfaces`
 
 This is a example config
+
+
+It will look like this and remember to add auto if you dont the inerface will not 
+enable networking at boot.
+
 ```
 # ifupdown has been replaced by netplan(5) on this system.  See
 # /etc/netplan for current configuration.
