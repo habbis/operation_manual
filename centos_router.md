@@ -138,8 +138,11 @@ I am only going to show isc-dhcp-server.
 Install it with yum.
 
 ```
+# centos8
 yum -y install dhcp-server
 
+# centos7 
+yum install -y dhcp
 ```
 Next Choose the interface to have the dhcps-server on.
 ```
