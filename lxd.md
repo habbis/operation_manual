@@ -72,7 +72,12 @@ To edit
 ```
 lxc profle edit yourprofile
 ```
-How a config can look like with bridge setup 
+
+To setup bridge with vlan on netplan this works on ubuntu 18.04 and 20.04
+[ubuntu bridge setup](https://github.com/habbis/ubuntu_bridge_setup/blob/master/00-bridge_vlan.yaml)
+
+How a config can look like with bridge setup.
+
 ```
 ### This is a yaml representation of the profile.
 ### Any line starting with a '# will be ignored.
