@@ -22,7 +22,18 @@ lxc image export  local:yourcontainername  /your/location
 ```
 
 To launch a conainer 
-
+```
+lxc launch ubuntu:18.04 yourname
+```
+The first example show a ubuntu container spesific launch
+and here is a more general way.
+```
+lxc launch yourimage yourname
+```
+Use a customer profile
+```
+lxc launch -p yourprofile yourimage yourname
+```
 
 Import tar.gz container image
 ```
