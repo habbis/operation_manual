@@ -35,7 +35,32 @@ If you want a priviliged container(its not recommended to user privliged)
 ```
 lxc launch ubuntu nestc1 -c security.nesting=true -c security.privileged=true
 ```
+You may need to add more UIDs and GIDs to lxd so see
+[Custom user mappings in LXD containers](https://stgraber.org/2017/06/15/custom-user-mappings-in-lxd-containers/)
 
+Here is what is look like.
+
+```
+stgraber@castiana:~$ cat /etc/subuid
+lxd:100000:65536
+root:100000:65536
+
+stgraber@castiana:~$ cat /etc/subgid
+lxd:100000:65536
+root:100000:65536
+
+The maps for “lxd” and “root” should always be kept in sync. LXD itself is restricted by the “root” allocation. The “lxd” entry is used to track what needs to be removed if LXD is uninstalled.
+
+Now if you want to increase the size of the map available to LXD. Simply edit both of the files and bump the last value from 65536 to whatever size you need. I tend to bump it to a billion just so I don’t ever have to think about it again:
+
+stgraber@castiana:~$ cat /etc/subuid
+lxd:100000:1000000000
+root:100000:1000000000
+
+stgraber@castiana:~$ cat /etc/subgid
+lxd:100000:1000000000
+root:100000:100000000
+```
 
 
 links:
