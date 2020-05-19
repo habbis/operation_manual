@@ -230,4 +230,5 @@ used_by: []
 links:
 
 [configure lxd containers with cloud config](https://askubuntu.com/questions/617865/is-there-a-way-to-configure-lxd-containers-with-cloud-config-at-provision-time)
+
 [Nested containers in LXD](https://ubuntu.com/blog/nested-containers-in-lxd)
