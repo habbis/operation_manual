@@ -21,6 +21,8 @@ Export a container image to tar.gz
 lxc image export  local:yourcontainername  /your/location
 ```
 
+To launch a conainer 
+
 
 Import tar.gz container image
 ```
@@ -228,6 +230,8 @@ used_by: []
 
 
 links:
+
+[lxd doc](https://lxd.readthedocs.io/en/latest/)
 
 [configure lxd containers with cloud config](https://askubuntu.com/questions/617865/is-there-a-way-to-configure-lxd-containers-with-cloud-config-at-provision-time)
 
