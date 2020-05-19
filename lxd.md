@@ -24,7 +24,18 @@ lxc launch ubuntu: CONTAINER -p default -p dev
 
 
 ```
-run docker inside a lxc container managed by lxd user nesting 
+run docker inside a lxc container managed by lxd use nesting and this is a similar thing like vm nesting but this is not hardware based like with a hardware virtualization.
+
+To launch a container with nesting 
+
+```
+lxc launch ubuntu nestc1 -c security.nesting=true 
+```
+If you want a priviliged container(its not recommended to user privliged)
+```
+lxc launch ubuntu nestc1 -c security.nesting=true -c security.privileged=true
+```
+
 
 
 links:
