@@ -1,6 +1,6 @@
 # lxd
 
-Here is a guide to setup lxd. warning this guide can be outdated a new guide will maybe come late.
+Here is a guide to setup lxd. warning this guide can be outdated a new guide will maybe come later.
 [lxd setup](https://habbis.github.io/post/lxd/)
 
 
