@@ -65,13 +65,9 @@ Correct permissions for the installation. It is recommended to have everything o
 permission.
 
 ```
-chown
-chown
-chown
-chown
--R root.root /opt/confluence/current/
-$CONFUSER /opt/confluence/current/conf/Standalone/localhost
-$CONFUSER /opt/confluence/current/temp
-$CONFUSER /opt/confluence/current/work
+chown -R root.root /opt/confluence/current/
+chown $CONFUSER /opt/confluence/current/conf/Standalone/localhost
+chown $CONFUSER /opt/confluence/current/temp
+chown $CONFUSER /opt/confluence/current/work
 ```
 
