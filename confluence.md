@@ -32,12 +32,17 @@ mount -a
 Java and Fonts
 Newer versions of Confluence support OpenJDK, and this is the recommended JVM to use.
 Confluence requires some fonts installed on the server. The easiest way to get them is just to install fontconfig.
+
+Centos/RHEL
 ```
 yum install java-11-openjdk-headless
 yum install fontconfig
 ```
-
-
+ubuntu/debian
+```
+apt install -y openjdk-11-jdk-headless
+apt install -y fontconfig
+```
 
 
 
