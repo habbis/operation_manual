@@ -44,5 +44,34 @@ apt install -y openjdk-11-jdk-headless
 apt install -y fontconfig
 ```
 
+## Installation
 
+Download
+Download the release " TAR.GZ " package from Atlassian for the version you intend to run. Do not use the " Linux 64 Bit " installer.
+
+Application
+Unpack release tarball to /opt/confluence
+```
+mkdir /opt/confluence
+cd /opt/confluence
+tar -zxf atlassian-confluence-7.2.0.tar.gz
+```
+Symlink the " current " directory to the version you unpacked (this is to avoid making changes to init script etc. during upgrades, and for easier
+rollback
+```
+ln -s atlassian-confluence-7.2.0 current
+```
+Correct permissions for the installation. It is recommended to have everything owned by root, except three directories which needs write
+permission.
+
+```
+chown
+chown
+chown
+chown
+-R root.root /opt/confluence/current/
+$CONFUSER /opt/confluence/current/conf/Standalone/localhost
+$CONFUSER /opt/confluence/current/temp
+$CONFUSER /opt/confluence/current/work
+```
 
