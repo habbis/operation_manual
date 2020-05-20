@@ -138,4 +138,4 @@ Configuration
 
 
 Links:
-[confluence mysql database](https://confluence.atlassian.com/kb/how-to-fix-the-collation-and-character-set-of-a-mysql-database-744326173.html)
+[Database Setup For MySQL](https://confluence.atlassian.com/doc/database-setup-for-mysql-128747.html)
