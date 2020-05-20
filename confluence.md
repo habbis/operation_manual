@@ -144,6 +144,9 @@ sudo apt install mysql-server
 ```
 
 Configuring MySQL
+
+This will take you through a series of prompts where you can make some changes to 
+your MySQL installation’s security options.
 Run the security script:
 ```
 sudo mysql_secure_installation
