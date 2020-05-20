@@ -27,4 +27,21 @@ echo "/dev/mapper/vg1-VarConfluence /var/confluence xfs defaults 0 0" >> /etc/fs
 mkdir /var/confluence
 mount -a
 ```
+Prerequisites
+Java
+Newer versions of Confluence support OpenJDK, and this is the recommended JVM to use.
+```
+yum install java-11-openjdk-headless
+```
+Fonts
+
+Confluence requires some fonts installed on the server. The easiest way to get them is just to install fontconfig.
+```
+yum install fontconfig
+```
+
+
+
+
+
 
