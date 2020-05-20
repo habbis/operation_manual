@@ -70,4 +70,62 @@ chown $CONFUSER /opt/confluence/current/conf/Standalone/localhost
 chown $CONFUSER /opt/confluence/current/temp
 chown $CONFUSER /opt/confluence/current/work
 ```
+Create log directory under /var/log and replace the logs directory under /opt with a symlink to it.
+```
+mkdir /var/log/confluence
+chown $CONFUSER /var/log/confluence
+chmod 700 /var/log/confluence
+rm -rf /opt/confluence/current/logs
+ln -s /var/log/confluence /opt/confluence/current/logs
+```
+Create data directory on /var/confluence partition.
+
+```
+mkdir /var/confluence/data
+chown $CONFUSER /var/confluence/data
+chmod 700 /var/confluence/data
+```
+Create init script as /etc/init.d/confluence . Remember to update the USER variable.
+```
+#!/bin/sh -e
+# Confluence startup script
+#chkconfig: 2345 80 05
+#description: Confluence
+# Define some variables
+# Name of app ( JIRA, Confluence, etc )
+APP=confluence
+# Name of the user to run as
+USER=<customerprefix>-wiki
+# Location of Confluence install directory
+CATALINA_HOME=/opt/confluence/current
+# Location of Java JDK
+export JAVA_HOME=/etc/alternatives/jre_11_openjdk
+case "$1" in
+# Start command
+start)
+echo "Starting $APP"
+/bin/su -m $USER -c "$CATALINA_HOME/bin/start-confluence.sh &>
+/dev/null"
+;;
+# Stop command
+stop)
+echo "Stopping $APP"
+/bin/su -m $USER -c "$CATALINA_HOME/bin/stop-confluence.sh &>
+/dev/null"
+echo "$APP stopped successfully"
+;;
+# Restart command
+restart)
+$0 stop
+sleep 5
+$0 start
+;;
+*)
+echo "Usage: /etc/init.d/$APP {start|restart|stop}"
+exit 1
+;;
+esac
+exit 0
+```
+
 
