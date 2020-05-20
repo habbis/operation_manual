@@ -135,3 +135,7 @@ chmod +x /etc/init.d/confluence
 chkconfig --add confluence
 ```
 Configuration
+
+
+Links:
+[confluence mysql database](https://confluence.atlassian.com/kb/how-to-fix-the-collation-and-character-set-of-a-mysql-database-744326173.html)
