@@ -128,4 +128,10 @@ esac
 exit 0
 ```
 
+Make init script executable and add it to start at boot.
 
+```
+chmod +x /etc/init.d/confluence
+chkconfig --add confluence
+```
+Configuration
