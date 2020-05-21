@@ -24,8 +24,8 @@ ln -s node-v12.16.3 current
 ```
 Then we symlink npm nad node in working dir
 ```
-ln -s bin/ /usr/local/bin/node
-ln -s bin/ /usr/local/bin/npm
+ln -s bin/ /usr/bin/node/node
+ln -s bin/ /usr/bin/node/npm
 ```
 
 
