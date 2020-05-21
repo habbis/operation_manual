@@ -28,4 +28,10 @@ ln -s /opt/node-v12.16.3-linux-x64/bin/npm /usr/bin/npm
 ln -s /opt/node-v12.16.3-linux-x64/bin/node /usr/bin/node
 ```
 
+# To set etherpad i production mode
+```
+export NODE_ENV=production
+```
+
+
 
