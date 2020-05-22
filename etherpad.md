@@ -25,7 +25,7 @@ create a ordinary user to run etherpad
 useradd --create-home --shell /bin/bash youruser
 ```
 
-creat a user with not shell
+Or creat more a system account with no shell 
 ```
 sudo useradd -m --shell /bin/nologin youruser
 ```
