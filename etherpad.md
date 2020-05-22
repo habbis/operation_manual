@@ -70,6 +70,25 @@ It will create a settings.json at
 
 ```
 
+To user mysql or maraidb databse you must set these setting in settings.json
+
+```
+  /*
+  "dbType" : "mysql",
+  "dbSettings" : {
+    "user":     "etherpaduser",
+    "host":     "localhost",
+    "port":     3306,
+    "password": "PASSWORD",
+    "database": "etherpad_lite_db",
+    "charset":  "utf8mb4"
+  },
+  */
+```
+
+
+
+
 To create a older type init shell script 
 place it in /etc/init.d/ and call it ehterpad.
 
