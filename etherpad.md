@@ -22,16 +22,14 @@ ln - etherpad-lite-1.8.4 current
 
 create a ordinary user to run etherpad
 ```
-useradd --create-home --shell /bin/bash youruser
+useradd -m /opt/etherpad/current/ --shell /bin/sh youruser
 ```
 
-Or creat more a system account with no shell 
-```
-sudo useradd -m --shell /bin/nologin youruser
-```
 To give the etherpad user access to dir
 ```
 chown -R youruser:youruser /opt/etherpad/current
+
+useradd -m /opt/etherpad/current/ --shell /bin/nologin test04
 ```
 To test run etherpad 
 ```
@@ -97,7 +95,9 @@ PATH="/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/opt/node/bin
 LOGFILE="/var/log/etherpad-lite/etherpad-lite.log"
 EPLITE_DIR="/usr/share/etherpad-lite"
 EPLITE_BIN="bin/safeRun.sh"
-USER="etherpad-lite"
+USER="etherpad-lite
+
+"
 GROUP="etherpad-lite"
 DESC="Etherpad Lite"
 NAME="etherpad-lite"
@@ -162,5 +162,34 @@ esac
 exit 0
 ```
 
+Create a systemd service 
 
+From developers:
 
+With systemd it is better not to use the run.sh but to let systemd run node directly.
+
+Important! A manual run of bin/installDeps.sh is needed before the first start as service.
+
+etherpad.service
+
+```
+[Unit]
+Description=Etherpad-lite, the collaborative editor.
+After=syslog.target network.target
+
+[Service]
+Type=simple
+User=etherpad
+Group=etherpad
+WorkingDirectory=/opt/etherpad
+Environment=NODE_ENV=production
+ExecStart=/usr/bin/nodejs /opt/etherpad/node_modules/ep_etherpad-lite/node/server.js
+Restart=always # use mysql plus a complete settings.json to avoid Service hold-off time over, scheduling restart.
+
+[Install]
+WantedBy=multi-user.target
+```
+
+links:
+
+[etherpad service](https://github.com/ether/etherpad-lite/wiki/How-to-deploy-Etherpad-Lite-as-a-service)
