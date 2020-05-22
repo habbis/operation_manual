@@ -9,11 +9,12 @@ cd etherpad
 ```
 git clone --branch master git://github.com/ether/etherpad-lite.git
 
-or
+ln -s etherpad-lite current 
+````
+
 
 https://github.com/ether/etherpad-lite/archive/1.8.4.zip
-
-ln -s etherpad-lite current 
+ln - etherpad-lite-1.8.4 current
 ```
 cd node then download nodejs lts
 ```
