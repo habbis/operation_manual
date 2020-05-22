@@ -1,19 +1,22 @@
 # etherpad install guide
 
-first cd to /opt 
+First cd to /opt then we make dirs to run the application
 ```
 mkdir etherpad
 mkdir node
 ```
-cd etherpad
+cd etherpad and either git clone or download the zip file
 ```
 git clone --branch master git://github.com/ether/etherpad-lite.git
 
 ln -s etherpad-lite current 
 ````
-
-
+Or we use the zip file
+```
 https://github.com/ether/etherpad-lite/archive/1.8.4.zip
+
+unzip 1.8.4.zip
+
 ln - etherpad-lite-1.8.4 current
 ```
 cd node then download nodejs lts
@@ -43,7 +46,7 @@ To start etherpad
 /opt/etherpad-lite/bin/run.sh
 ```
 
-W
+
 
 
 
