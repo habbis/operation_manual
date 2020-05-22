@@ -19,6 +19,27 @@ unzip 1.8.4.zip
 
 ln - etherpad-lite-1.8.4 current
 ```
+
+create a ordinary user to run etherpad
+```
+useradd --create-home --shell /bin/bash youruser
+```
+
+creat a user with not shell
+```
+sudo useradd -m --shell /bin/nologin youruser
+```
+To give the etherpad user access to dir
+```
+chown -R youruser:youruser /opt/etherpad/current
+```
+To test run etherpad 
+```
+sudo su - youruser -s /bin/sh -c /opt/etherpad-lite/bin/run.sh
+```
+
+
+
 cd node then download nodejs lts
 ```
 wget https://nodejs.org/dist/v12.16.3/node-v12.16.3-linux-x64.tar.xz
