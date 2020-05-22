@@ -37,9 +37,6 @@ To test run etherpad
 ```
 sudo su - youruser -s /bin/sh -c /opt/etherpad-lite/bin/run.sh
 ```
-
-
-
 cd node then download nodejs lts
 ```
 wget https://nodejs.org/dist/v12.16.3/node-v12.16.3-linux-x64.tar.xz
@@ -57,7 +54,7 @@ ln -s /opt/node-v12.16.3-linux-x64/bin/npm /usr/bin/npm
 ln -s /opt/node-v12.16.3-linux-x64/bin/node /usr/bin/node
 ```
 
-# To set etherpad i production mode
+ To set etherpad i production mode
 ```
 export NODE_ENV=production
 ```
