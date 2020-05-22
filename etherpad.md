@@ -9,6 +9,10 @@ cd etherpad
 ```
 git clone --branch master git://github.com/ether/etherpad-lite.git
 
+or
+
+https://github.com/ether/etherpad-lite/archive/1.8.4.zip
+
 ln -s etherpad-lite current 
 ```
 cd node then download nodejs lts
@@ -32,6 +36,13 @@ ln -s /opt/node-v12.16.3-linux-x64/bin/node /usr/bin/node
 ```
 export NODE_ENV=production
 ```
+
+To start etherpad
+```
+/opt/etherpad-lite/bin/run.sh
+```
+
+W
 
 
 
