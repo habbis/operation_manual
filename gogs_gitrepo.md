@@ -1,7 +1,18 @@
 
 # gogs install guide
 
-First cd to /opt then we make dirs to run the application
+First install git 
+
+debian/ubuntu
+```
+apt install -y git
+```
+RHEL/centos 
+```
+yum install -y git
+```
+
+Then cd to /opt then we make dirs to run the application
 ```
 mkdir gogs
 ```
