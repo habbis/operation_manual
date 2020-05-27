@@ -26,4 +26,5 @@ chown -R youruser:youruser /opt/etherpad/current
 ```
 
 Links:
+
 [gogs download](https://gogs.io/docs/installation/install_from_binary)
