@@ -24,7 +24,7 @@ tar -zxf gogs_0.11.91_linux_amd64.tar.gz
 
 mv gogs gogs_yourversion
 
-ln -s  current 
+ln -s  gogs_yourversion current 
 ````
 create a ordinary user to run gogs
 ```
