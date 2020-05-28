@@ -30,7 +30,7 @@ and here is a more general way.
 ```
 lxc launch yourimage yourname
 ```
-Use a customer profile
+Use a custom profile
 ```
 lxc launch -p yourprofile yourimage yourname
 ```
