@@ -46,7 +46,7 @@ tar xJvf node-v12.16.3.tar.xz
 
 ln -s node-v12.16.3 current  
 ```
-Then we symlink npm nad node in working dir
+Then we symlink npm and node in working dir
 ```
 ln -s /opt/node-v12.16.3-linux-x64/bin/npm /usr/bin/npm 
 ln -s /opt/node-v12.16.3-linux-x64/bin/node /usr/bin/node
