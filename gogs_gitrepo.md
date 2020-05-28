@@ -191,6 +191,12 @@ case "$1" in
                 ;;
 esac                  
 ```
+Make init script executable and add it to start at boot.
+```
+chmod +x /etc/init.d/confluence
+chkconfig --add gogs
+```
+
 
 Or you can user the systemd service 
 ```
