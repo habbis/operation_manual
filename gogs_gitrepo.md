@@ -193,7 +193,7 @@ esac
 ```
 Make init script executable and add it to start at boot.
 ```
-chmod +x /etc/init.d/confluence
+chmod +x /etc/init.d/gogs
 chkconfig --add gogs
 ```
 
