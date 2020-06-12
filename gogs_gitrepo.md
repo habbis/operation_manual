@@ -33,7 +33,7 @@ useradd -m /opt/etherpad/current/ --shell /bin/sh youruser
 
 To give the gogs user access to dir
 ```
-chown -R youruser:youruser /opt/etherpad/current
+chown -R youruser:youruser /opt/gogs/current
 ```
 
 Init script setup for gogs.
