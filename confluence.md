@@ -134,6 +134,51 @@ Make init script executable and add it to start at boot.
 chmod +x /etc/init.d/confluence
 chkconfig --add confluence
 ```
+## configuration
+
+To edit where confluenc stores data edit this and add `confluence.home=/var/confluence/data`
+```
+cat /opt/confluence/current/confluence/WEB-INF/classes/confluence-init.properties
+
+# This file allows you to set the directory for Confluence to store its configuration files.
+#
+###########################
+# Note for Windows Users  #
+###########################
+#
+# Each backslash in your path must be written as a forward slash.
+# - For example:
+# c:\confluence\data
+#
+# should be written as:
+#
+# c:/confluence/data
+
+###########################
+# Note for Unix Users     #
+###########################
+# - For example:
+# confluence.home=/var/confluence
+#
+# NOTE: If the path of your confluence.home directory contains symlinks,
+# please set confluence.home to the absolute path, otherwise problems may occur.
+# - For example:
+# confluence.home=/data/confluence/ (where /data is a symlink to -> /var/data/)
+# should be written as:
+# confluence.home=/var/data/confluence/
+confluence.home=/var/confluence/data
+
+###########################
+# Configuration Directory #
+###########################
+
+# specify your directory below (don't forget to remove the '#' in front)
+
+# confluence.home=c:/confluence/data
+```
+
+
+
 ## mysql java database connector 
 confluence does not shipt with mysql support you must add the [mysql java connetor](https://dev.mysql.com/downloads/connector/j/) 
 
