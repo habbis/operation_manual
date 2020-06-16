@@ -4,7 +4,7 @@ Here is a guide to setup lxd. warning this guide can be outdated a new guide wil
 [lxd setup](https://habbis.github.io/post/lxd/)
 
 
-List remote lxc images mate by canonical.
+List remote lxc images made by canonical.
 ```
 lxc  image list images:
 ```
