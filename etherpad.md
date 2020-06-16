@@ -25,13 +25,13 @@ create a ordinary user to run etherpad
 useradd -m /opt/etherpad/current/ --shell /bin/sh youruser
 ```
 
-To give the etherpad user access to dir
+Then give the etherpad user access to dir
 ```
 chown -R youruser:youruser /opt/etherpad/current
 
 useradd -m /opt/etherpad/current/ --shell /bin/nologin test04
 ```
-To test run etherpad 
+ Do a test run of etherpad 
 ```
 sudo su - youruser -s /bin/sh -c /opt/etherpad-lite/bin/run.sh
 ```
@@ -52,17 +52,17 @@ ln -s /opt/node-v12.16.3-linux-x64/bin/npm /usr/bin/npm
 ln -s /opt/node-v12.16.3-linux-x64/bin/node /usr/bin/node
 ```
 
- To set etherpad i production mode
+ How to etherpad i production mode
 ```
 export NODE_ENV=production
 ```
 
-To start etherpad
+ Starting etherpad
 ```
 /opt/etherpad-lite/bin/run.sh
 ```
 
-It will create a settings.json at 
+Then it will create a settings.json 
 
 ```
  ls -al /opt/etherpad-lite/ |grep settings.json |grep -v settings.json.
@@ -70,7 +70,7 @@ It will create a settings.json at
 
 ```
 
-To user mysql or maraidb databse you must set these setting in settings.json
+To use mysql or maraidb databse you must set these setting in settings.json
 
 ```
   /*
