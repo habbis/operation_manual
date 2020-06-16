@@ -55,6 +55,7 @@ Configuration
 
 
 External links:
+
 [Database Setup For MySQL](https://confluence.atlassian.com/doc/database-setup-for-mysql-128747.html)
 
 [mysql-on-ubuntu-18-04)](https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-18-04)
