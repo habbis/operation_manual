@@ -6,11 +6,21 @@
 centos8/RHEL8 repo
 wget https://dev.mysql.com/get/mysql80-community-release-el8-1.noarch.rpm
 
+repo managment on centos8 here you can use both yum and dnf
+```
+sudo dnf config-manager --disable mysql80-community
+sudo dnf config-manager --enable mysql57-community
+```
 
 centos7/RHEL7 repo
 wget https://dev.mysql.com/get/mysql80-community-release-el7-3.noarch.rpm
 
 
+repo managment centos7 
+```
+sudo yum-config-manager --disable mysql80-community
+sudo yum-config-manager --enable mysql57-community
+```
 
 
 
@@ -28,8 +38,10 @@ Run the security script:
 sudo mysql_secure_installation
 ```
 
-
-
+Installing mysql server
+```
+sudo yum install mysql-community-server
+```
 
 
 Configuration
