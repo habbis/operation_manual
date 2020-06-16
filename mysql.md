@@ -50,11 +50,6 @@ Run the security script:
 sudo mysql_secure_installation
 ```
 
-Installing mysql server
-```
-sudo yum install mysql-community-server
-```
-
 
 Configuration
 
