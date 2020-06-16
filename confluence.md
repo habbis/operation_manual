@@ -150,12 +150,42 @@ mysql-connector-java-8.0.20 /opt/confluence/current/confluence/WEB-INF/lib
 ```
 
 
+## Configuring MySQL/Mariadb for confluence
 
-Mysql database setup
+Here is all the recommneded changes in [doc](https://confluence.atlassian.com/doc/database-setup-for-mysql-128747.html)
 
+```
+[mysqld]
 
-## Configuring MySQL/Mariadb
+character-set-server=utf8mb4
 
+collation-server=utf8mb4_bin
+
+default-storage-engine=INNODB
+
+max_allowed_packet=256M
+
+innodb_log_file_size=2GB
+
+```
+
+Ensure that the global transaction isolation level of your Database had been set to READ-COMMITTED.
+```
+...
+transaction-isolation=READ-COMMITTED
+```
+
+Check that the binary logging format is configured to use 'row-based' binary logging.
+
+```
+binlog_format=row
+```
+
+remove this if it exists
+```
+sql_mode = NO_AUTO_VALUE_ON_ZERO
+
+```
 
 
 
