@@ -134,6 +134,23 @@ Make init script executable and add it to start at boot.
 chmod +x /etc/init.d/confluence
 chkconfig --add confluence
 ```
+## mysql java database connector 
+confluence does not shipt with mysql support you must add the [mysql java connetor](https://dev.mysql.com/downloads/connector/j/) 
+
+Dowload tar file and get it to the server
+```
+wget https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-8.0.20.tar.gz
+```
+
+Then extract the tar file and copy it the right confluence directory
+```
+tar -zxf mysql-connector-java-8.0.20.tar.gz 
+
+mysql-connector-java-8.0.20 /opt/confluence/current/confluence/WEB-INF/lib
+```
+
+
+
 Mysql database setup
 
 ubuntu 
@@ -143,7 +160,7 @@ sudo apt install mysql-server
 
 ```
 
-Configuring MySQL
+## Configuring MySQL
 
 This will take you through a series of prompts where you can make some changes to 
 your MySQL installation’s security options.
@@ -159,6 +176,6 @@ sudo mysql_secure_installation
 Configuration
 
 
-Links:
+External links:
 [Database Setup For MySQL](https://confluence.atlassian.com/doc/database-setup-for-mysql-128747.html)
 [mysql-on-ubuntu-18-04)](https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-18-04)
