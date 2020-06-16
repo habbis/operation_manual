@@ -198,7 +198,7 @@ chkconfig --add gogs
 ```
 
 
-Or you can user the systemd service 
+Or you can use the systemd service 
 ```
 root@repo01:/opt/gogs/current# cat /opt/gogs/current/scripts/systemd/gogs.service
 [Unit]
