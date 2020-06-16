@@ -4,6 +4,7 @@
 ## centos/RHEL
 
 centos8/RHEL8 repo
+
 ```
 wget https://dev.mysql.com/get/mysql80-community-release-el8-1.noarch.rpm
 ```
@@ -15,8 +16,9 @@ sudo dnf config-manager --enable mysql57-community
 ```
 
 centos7/RHEL7 repo
+```
 wget https://dev.mysql.com/get/mysql80-community-release-el7-3.noarch.rpm
-
+```
 
 repo managment centos7 
 ```
