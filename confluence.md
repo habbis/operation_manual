@@ -191,4 +191,4 @@ sql_mode = NO_AUTO_VALUE_ON_ZERO
 ## External links:
 
 [confluence install guide](https://confluence.atlassian.com/doc/installing-confluence-on-linux-from-archive-file-255362363.html)
-
+[confluence download page](https://www.atlassian.com/software/confluence/download)
