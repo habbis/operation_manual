@@ -153,14 +153,20 @@ mysql-connector-java-8.0.20 /opt/confluence/current/confluence/WEB-INF/lib
 
 Mysql database setup
 
+
+## Configuring MySQL/Mariadb
+
+
+
+
+Installing mysql
+
 ubuntu 
 ```
 sudo apt update
 sudo apt install mysql-server
 
 ```
-
-## Configuring MySQL
 
 This will take you through a series of prompts where you can make some changes to 
 your MySQL installation’s security options.
