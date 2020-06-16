@@ -60,3 +60,4 @@ External links:
 [mysql community downloads RHEL/centos](https://dev.mysql.com/downloads/repo/yum/)
 [A Quick Guide to Using the MySQL Yum Repository](https://dev.mysql.com/doc/mysql-yum-repo-quick-guide/en/)
 [mysql community downloads debian/ubuntu](https://dev.mysql.com/downloads/repo/apt/)
+[MySQL Community Downloads](https://dev.mysql.com/downloads/)
