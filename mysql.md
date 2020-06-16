@@ -4,7 +4,9 @@
 ## centos/RHEL
 
 centos8/RHEL8 repo
+```
 wget https://dev.mysql.com/get/mysql80-community-release-el8-1.noarch.rpm
+```
 
 repo managment on centos8 here you can use both yum and dnf
 ```
@@ -25,11 +27,21 @@ sudo yum-config-manager --enable mysql57-community
 
 
 ## ubuntu/debian
-```
-sudo apt update
-sudo apt install mysql-server
 
+ubuntu/debian repo
 ```
+wget https://dev.mysql.com/get/mysql-apt-config_0.8.15-1_all.deb
+```
+To install deb package
+```
+sudo dpkg -i /mysql-apt-config_0.8.15-1_all.deb
+```
+Then to install 
+```
+sudo apt-get update
+sudo apt-get install mysql-server
+```
+
 
 This will take you through a series of prompts where you can make some changes to 
 your MySQL installation’s security options.
