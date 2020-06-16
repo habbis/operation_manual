@@ -50,5 +50,6 @@ Configuration
 External links:
 [Database Setup For MySQL](https://confluence.atlassian.com/doc/database-setup-for-mysql-128747.html)
 [mysql-on-ubuntu-18-04)](https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-18-04)
-[mysql community downloads](https://dev.mysql.com/downloads/repo/yum/)
+[mysql community downloads RHEL/centos](https://dev.mysql.com/downloads/repo/yum/)
 [A Quick Guide to Using the MySQL Yum Repository](https://dev.mysql.com/doc/mysql-yum-repo-quick-guide/en/)
+[mysql community downloads debian/ubuntu](https://dev.mysql.com/downloads/repo/apt/)
