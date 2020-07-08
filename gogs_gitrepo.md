@@ -15,10 +15,13 @@ yum install -y git
 ```
 
 Then cd to /opt then we make dirs to run the application
+
 ```
 mkdir gogs
+
 ```
 cd etherpad and either git clone or download the zip file
+
 ```
 wget https://dl.gogs.io/0.11.91/gogs_0.11.91_linux_amd64.tar.gz
 
@@ -27,20 +30,24 @@ tar -zxf gogs_0.11.91_linux_amd64.tar.gz
 mv gogs gogs_yourversion
 
 ln -s  gogs_yourversion current 
+
 ````
 create a ordinary user to run gogs
+
 ```
 useradd -m /opt/etherpad/current/ --shell /bin/sh youruser
-```
 
+```
 To give the gogs user access to dir
+
 ```
 chown -R youruser:youruser /opt/gogs/current
-```
 
+```
 Init script setup for gogs.
 
 Under script folder you can find diffrent types fo  init script for linux distros or unix os like freebsd.
+
 ```
 root@repo01:/opt/gogs/current# ls -al /opt/gogs/current/scripts/                                              [0/1391]
 total 47
@@ -59,10 +66,13 @@ drwxr-xr-x 2 user user   3 Aug 12  2019 systemd
 drwxr-xr-x 2 user user   3 Aug 12  2019 windows
 ```
 To setup like a old sysinit way you can copy the script..
+
 ```
 cp /opt/gogs/current/scripts/init/debian/gogs /etc/init.d/gogs
+
 ```
 Here is wat the script sysinit script lookslike
+
 ```
 vim  /etc/init.d/gogs
 
@@ -192,15 +202,19 @@ case "$1" in
                 exit 3
                 ;;
 esac                  
+
 ```
 Make init script executable and add it to start at boot.
+
 ```
 chmod +x /etc/init.d/gogs
 chkconfig --add gogs
+
 ```
 
 
 Or you can use the systemd service 
+
 ```
 root@repo01:/opt/gogs/current# cat /opt/gogs/current/scripts/systemd/gogs.service
 [Unit]
