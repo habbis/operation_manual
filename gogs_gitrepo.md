@@ -4,10 +4,12 @@
 First install git 
 
 debian/ubuntu
+
 ```
 apt install -y git
 ```
 RHEL/centos 
+
 ```
 yum install -y git
 ```
