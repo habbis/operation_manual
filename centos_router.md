@@ -164,6 +164,7 @@ Then change some options.
 ```
 option domain-name "yourdomain";
 option domain-name-servers 172.16.1.1, ns2.yournameserver;
+deny declines;
 default-lease-time 3600; 
 max-lease-time 7200;
 authoritative;
@@ -195,6 +196,11 @@ Then enable and start dhcp
 ```
 systemctl start dhcpd
 systemctl enable dhcpd
+```
+
+Then add a firewall rule to allow dhcp on internal interface
+```
+sudo firewall-cmd --zone=internal --add-service=dhcp --permanent
 ```
 
 Link:
