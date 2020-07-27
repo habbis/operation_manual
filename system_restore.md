@@ -1,7 +1,7 @@
 # System Restore
 
 When at the Grub menu and selecting the boot kernel press `e` .
-then at the end on the line starting with linux then press `End` . 
+then at the end on the line starting with linux then press `End` if it down work just use the arror keys to get to the end . 
 Then append `rd.break` at the end of the line and if you also 
 add `enforcing 0` it enables omitting the time consuming SElinux relabeling process.
 Then press `Ctrl+x` to boot using the modified config.
