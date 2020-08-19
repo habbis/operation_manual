@@ -1,6 +1,6 @@
-# Setup maria Galera Cluster centos 
+# Setup mariadb centos 
 
-Setup repo 
+## Setup repo 
 
 centos7
 
@@ -27,7 +27,13 @@ module_hotfixes=1
 gpgkey=http://mirror.terrahost.no/mariadb/yum/RPM-GPG-KEY-MariaDB
 gpgcheck=1
 ```
-If you want to install just mariadb
+Adding gpg key
+
+```
+sudo rpm --import https://yum.mariadb.org/RPM-GPG-KEY-MariaDB
+```
+
+## If you want to install just mariadb
 
 centos7
 ```
@@ -42,6 +48,29 @@ sudo dnf install -y MariaDB-server
 sudo systemctl enable --now mariadb
 ```
 
+## Installing mariadb backup
+
+centos7
+```
+sudo yum install -y  MariaDB-backup
+```
+
+centos8
+```
+sudo dnf install -y MariaDB-backup
+```
+
+## To setup mariadb Galera Cluster (maste master cluster)
+
+
+centos7
+```
+yum install -y  MariaDB-server MariaDB-client galera-4
+```
+cento8
+```
+dnf install -y  MariaDB-server MariaDB-client galera-4
+```
 links:
 
 https://computingforgeeks.com/how-to-setup-mariadb-galera-cluster-on-debian/
