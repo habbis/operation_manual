@@ -37,27 +37,30 @@ sudo rpm --import https://yum.mariadb.org/RPM-GPG-KEY-MariaDB
 
 centos7
 ```
-sudo yum install -y  MariaDB-server
-sudo systemctl enable --now mariadb
+ yum install -y  MariaDB-server
+ systemctl enable --now mariadb
 ```
-
+Securing database
+```
+mysql_secure_installation
+```
 
 centos8
 ```
-sudo dnf install -y MariaDB-server
-sudo systemctl enable --now mariadb
+ dnf install -y MariaDB-server
+ systemctl enable --now mariadb
 ```
 
 ## Installing mariadb backup
 
 centos7
 ```
-sudo yum install -y  MariaDB-backup
+ yum install -y  MariaDB-backup
 ```
 
 centos8
 ```
-sudo dnf install -y MariaDB-backup
+ dnf install -y MariaDB-backup
 ```
 
 ## To setup mariadb Galera Cluster (maste master cluster)
@@ -71,6 +74,53 @@ cento8
 ```
 dnf install -y  MariaDB-server MariaDB-client galera-4
 ```
+
+Then run galera new cluster to generate config that you need to edit 
+```
+ galera_new_cluster
+```
+
+Setup storage on a seperate partition for db storage with lvm and xfs filesytem
+```
+pvcreate /dev/sdb
+
+vgcreate vgdb /dev/sdb
+
+lvcreate -n lvdb -L +49G vgdb
+
+ mkfs.xfs /dev/vgdb/lvdb
+```
+Stop database and backup the datadir of mariadb
+```
+ systemctl stop mariadb
+
+ cp -au  /var/lib/mysql/ /var/lib/bk.mysql
+ 
+ rm -rf  /var/lib/mysql/
+```
+Then mount the lvvol in fstab and test mount it 
+
+`vim /etc/fstab`
+
+append at the end 
+
+```
+ database
+/dev/mapper/vgdb-lvdb /var/lib/mysql xfs defaults 0 0
+```
+Test mount and copy files from backup and give right permissions
+
+```
+mount -a 
+
+cp -au /var/lib/bk.mysql/* /var/lib/mysql/
+
+chown -R mysql:mysql /var/lib/mysql
+
+```
+
+
+
 links:
 
 https://computingforgeeks.com/how-to-setup-mariadb-galera-cluster-on-debian/
