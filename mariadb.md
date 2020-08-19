@@ -119,6 +119,75 @@ chown -R mysql:mysql /var/lib/mysql
 
 ```
 
+Setup cluster confg `vim /etc/my.cnf.d/server.cnf`
+```
+#
+# These groups are read by MariaDB server.
+# Use it for options that only the server (but not clients) should see
+#
+# See the examples of server my.cnf files in /usr/share/mysql/
+#
+
+# this is read by the standalone daemon and embedded servers
+[server]
+
+# this is only for the mysqld standalone daemon
+[mysqld]
+
+#
+# * Galera-related settings
+#
+[galera]
+# Mandatory settings
+wsrep_on=ON
+wsrep_provider=/usr/lib64/galera-4/libgalera_smm.so
+wsrep_cluster_name="dbcluster01"
+wsrep_cluster_address="gcomm://"
+# ip if host
+wsrep_node_address="10.2.1.2"
+binlog_format=row
+default_storage_engine=InnoDB
+innodb_autoinc_lock_mode=2
+#
+# Allow server to accept connections on all interfaces.
+#
+bind-address=0.0.0.0
+#
+# Optional setting
+#wsrep_slave_threads=1
+#innodb_flush_log_at_trx_commit=0
+
+# this is only for embedded server
+[embedded]
+
+# This group is only read by MariaDB servers, not by MySQL.
+# If you use the same .cnf file for MySQL and MariaDB,
+# you can put MariaDB-only options here
+[mariadb]
+
+# This group is only read by MariaDB-10.5 servers.
+# If you use the same .cnf file for MariaDB of different versions,
+# use this group for options that older servers don't understand
+[mariadb-10.5]
+
+```
+Securing databse can you do in the beggining or after cluster config setup
+`mysql_secure_installation`
+
+Just to be safe run glera new cluste scrip
+`galera_new_cluster`
+
+
+Start the database
+`systemctl enable --now mariadb.service`
+Or restart if you have enabled
+`systemctl restart mariadb.service`
+
+Login to mariadb and check if cluster is up and running 
+`how status like 'wsrep_%';`
+
+Then it will show detailed info but its online if you see this 
+`| wsrep_connected               | ON`
 
 
 links:
