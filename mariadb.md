@@ -183,12 +183,65 @@ Start the database
 Or restart if you have enabled
 `systemctl restart mariadb.service`
 
+second node follow all the above cluster steps but config is a bit diffren.
+Under wsrep_cluster_address you add both ip addresses and with a tird node do the 
+same but add another ip that is that nodes.
+```
+#
+# These groups are read by MariaDB server.
+# Use it for options that only the server (but not clients) should see
+#
+# See the examples of server my.cnf files in /usr/share/mysql/
+#
+
+# this is read by the standalone daemon and embedded servers
+[server]
+
+# this is only for the mysqld standalone daemon
+[mysqld]
+
+#
+# * Galera-related settings
+#
+[galera]
+# Mandatory settings
+wsrep_on=ON
+wsrep_provider=/usr/lib64/galera-4/libgalera_smm.so
+wsrep_cluster_name="dbcluster01"
+wsrep_cluster_address="gcomm://10.2.1.2,10.2.1.3"
+wsrep_node_address="10.2.1.3"
+binlog_format=row
+default_storage_engine=InnoDB
+innodb_autoinc_lock_mode=2
+#
+# Allow server to accept connections on all interfaces.
+#
+bind-address=0.0.0.0
+#
+# Optional setting
+#wsrep_slave_threads=1
+#innodb_flush_log_at_trx_commit=0
+
+# this is only for embedded server
+[embedded]
+
+# This group is only read by MariaDB servers, not by MySQL.
+# If you use the same .cnf file for MySQL and MariaDB,
+# you can put MariaDB-only options here
+[mariadb]
+
+# This group is only read by MariaDB-10.5 servers.
+# If you use the same .cnf file for MariaDB of different versions,
+# use this group for options that older servers don't understand
+[mariadb-10.5]
+
+```
+
 Login to mariadb and check if cluster is up and running 
 `how status like 'wsrep_%';`
 
 Then it will show detailed info but its online if you see this 
 `| wsrep_connected               | ON`
-
 
 links:
 
