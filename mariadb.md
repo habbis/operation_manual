@@ -243,6 +243,53 @@ Login to mariadb and check if cluster is up and running
 Then it will show detailed info but its online if you see this 
 `| wsrep_connected               | ON`
 
+## Configuration
+
+Create database 
+```
+create database `yourdb`;
+```
+
+Create user for database 
+
+for local db user localhost
+```
+create user `gogs`@localhost identified by 'yourpass';
+```
+for remote login you can set with ip or blank for a cluster 
+```
+create user `gogs`@ identified by 'yourpass';
+```
+```
+create user `gogs`@10.2.1.2 identified by 'yourpass';
+```
+
+Delete user
+```
+drop user `gogs`@yourip;
+```
+remove user when ip is blank
+```
+drop user `gogs`@;
+```
+delete database
+```
+drop database;
+```
+Grant user privileges to database
+```
+grant all privileges on `gogs` to `gogs`@;
+```
+Show what your user privileges
+```
+show grants for 'gogs'@;
+```
+Show database
+```
+show databases;
+```
+
+
 links:
 
 https://computingforgeeks.com/how-to-setup-mariadb-galera-cluster-on-debian/
