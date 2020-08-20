@@ -43,7 +43,7 @@ Then to install
 sudo apt-get update
 sudo apt-get install mysql-server
 ```
-
+## Configuration
 
 This will take you through a series of prompts where you can make some changes to 
 your MySQL installation’s security options.
@@ -51,9 +51,49 @@ Run the security script:
 ```
 sudo mysql_secure_installation
 ```
+Create database 
+```
+create database `yourdb`;
+```
 
+Create user for database 
 
-Configuration
+for local db user localhost
+```
+create user `gogs`@localhost identified by 'yourpass';
+```
+for remote login you can set with ip or blank for a cluster 
+```
+create user `gogs`@ identified by 'yourpass';
+```
+```
+create user `gogs`@10.2.1.2 identified by 'yourpass';
+```
+
+Delete user
+```
+drop user `gogs`@yourip;
+```
+remove user when ip is blank
+```
+drop user `gogs`@;
+```
+delete database
+```
+drop database;
+```
+Grant user privileges to database
+```
+grant all privileges on `gogs` to `gogs`@;
+```
+Show what your user privileges
+```
+show grants for 'gogs'@;
+```
+Show database
+```
+show databases;
+```
 
 
 External links:
