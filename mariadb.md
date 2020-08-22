@@ -268,7 +268,9 @@ bind-address=0.0.0.0
 ```
 
 Login to mariadb and check if cluster is up and running 
-`how status like 'wsrep_%';`
+```
+show status like 'wsrep_%';
+```
 
 Then it will show detailed info but its online if you see this 
 `| wsrep_connected               | ON`
