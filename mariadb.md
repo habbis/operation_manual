@@ -326,6 +326,11 @@ centos if you added it via repo from mariadb site
 ```
 yum install -y  MariaDB-backup
 ```
+debian/ubuntu
+```
+apt install -y mariadb-backup
+```
+
 Allow user to make backup
 ```
 GRANT RELOAD, PROCESS, LOCK TABLES, REPLICATION CLIENT ON *.* TO 'backupuser'@'localhost' IDENTIFIED BY 'backup123';
