@@ -119,8 +119,16 @@ chown -R mysql:mysql /var/lib/mysql
 
 ```
 
-Setup cluster confg `vim /etc/my.cnf.d/server.cnf`
+Setup cluster confg 
+
+centos 
+`vim /etc/my.cnf.d/server.cnf`
 ```
+debian/centos
+```
+vim /etc/mysql/mariadb.conf.d/50-server.cnf
+```
+
 #
 # These groups are read by MariaDB server.
 # Use it for options that only the server (but not clients) should see
