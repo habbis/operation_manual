@@ -1,7 +1,37 @@
-# Setup mariadb centos 
+# Setup mariadb 
 
 ## Setup repo 
 
+
+Debian 10 buster
+```
+sudo apt-get install software-properties-common dirmngr
+sudo apt-key adv --fetch-keys 'https://mariadb.org/mariadb_release_signing_key.asc'
+sudo add-apt-repository 'deb [arch=amd64] http://mirror.terrahost.no/mariadb/repo/10.5/debian buster main'
+
+sudo apt-get update
+sudo apt-get install mariadb-server
+
+```
+
+ubuntu 20.04
+```
+sudo apt-get install software-properties-common
+sudo apt-key adv --fetch-keys 'https://mariadb.org/mariadb_release_signing_key.asc'
+sudo add-apt-repository 'deb [arch=amd64,arm64,ppc64el] http://mirror.terrahost.no/mariadb/repo/10.5/ubuntu focal main'
+
+sudo apt update
+sudo apt install mariadb-server
+```
+ubuntu 18.04
+```
+sudo apt-get install software-properties-common
+sudo apt-key adv --fetch-keys 'https://mariadb.org/mariadb_release_signing_key.asc'
+sudo add-apt-repository 'deb [arch=amd64,arm64,ppc64el] http://mirror.terrahost.no/mariadb/repo/10.5/ubuntu bionic main'
+
+sudo apt update
+sudo apt install mariadb-server
+```
 centos7
 
 `vim /etc/yum.repos.d/MariaDB.repo`
@@ -119,16 +149,8 @@ chown -R mysql:mysql /var/lib/mysql
 
 ```
 
-Setup cluster confg 
-
-centos 
-`vim /etc/my.cnf.d/server.cnf`
+Setup cluster confg `vim /etc/my.cnf.d/server.cnf`
 ```
-debian/centos
-```
-vim /etc/mysql/mariadb.conf.d/50-server.cnf
-```
-
 #
 # These groups are read by MariaDB server.
 # Use it for options that only the server (but not clients) should see
@@ -295,6 +317,31 @@ show grants for 'gogs'@;
 Show database
 ```
 show databases;
+```
+
+Mariadb-backup
+
+
+centos if you added it via repo from mariadb site
+```
+yum install -y  MariaDB-backup
+```
+Allow user to make backup
+```
+GRANT RELOAD, PROCESS, LOCK TABLES, REPLICATION CLIENT ON *.* TO 'backupuser'@'localhost' IDENTIFIED BY 'backup123';
+```
+
+Example of backup
+```
+mariabackup --target-dir=/tmp/mariadb/backup/ --user=backupuser --password=backup123
+```
+If you want to create the compressed backup of your database, you can use --stream option as follows.
+```
+mariabackup --user=backupuser --password=backup123 --backup --stream=xbstream | gzip > backup_22_03_2020.gz
+```
+You can use the following command to decompress the files.
+```
+gunzip -c backup_22_03_2020.gz | mbstream -x
 ```
 
 
