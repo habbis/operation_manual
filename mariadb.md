@@ -344,7 +344,7 @@ mariabackup --target-dir=/tmp/mariadb/backup/ --user=backupuser --password=backu
 ```
 If you want to create the compressed backup of your database, you can use --stream option as follows.
 ```
-mariabackup --user=backupuser --password=backup123 --backup --stream=xbstream | gzip > backup_22_03_2020.gz
+mariabackup --user=backupuser --password=backup123 --backup --stream=xbstream | gzip > backup_$(date +%d-%m-%Y_%H-%M-%S).gz
 ```
 You can use the following command to decompress the files.
 ```
