@@ -141,6 +141,7 @@ devices:
     name: eth0
     nictype: bridged
     parent: br0
+    type: nic
 
 ```
 With cloud-init setup so you can launch a container with the config you want
