@@ -11,12 +11,17 @@
  
 ## Remove and add window key
 
+update key when running evaluation
+```
+dism /online /set-edition:ServerStandard /productkey:yourkey /accepteula
+``
+
 remove cd key
 ```
 slmgr.vbs -upk
 ```
 
-add cd key
+update cd key
 ```
 slmgr.vbs -upk yourkey
 ```
