@@ -84,7 +84,7 @@ drop database;
 ```
 Grant user privileges to database
 ```
-grant all privileges on `gogs` to `gogs`@;
+grant all privileges on gogs.* to gogs@;
 ```
 Show what your user privileges
 ```
