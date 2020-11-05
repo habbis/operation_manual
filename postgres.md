@@ -126,7 +126,7 @@ first login to postgres user
 ```
 su - postgres
 ```
-```
+
 To login to postgres cli 
 ```
 psql
