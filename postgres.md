@@ -43,3 +43,25 @@ sudo apt-get update
 sudo apt-get -y install postgresql
 
 ```
+### storage 
+
+
+
+### allow what address postgres instance should listen to
+
+The config file location 
+/var/lib/pgsql/13/data/postgresql.conf
+
+Change this line `listen_addresses` to ip address or localhost or '*' for all .
+
+```
+listen_addresses = '*'		# what IP address(es) to listen on;
+					# comma-separated list of addresses;
+					# defaults to 'localhost'; use '*' for all
+```
+
+
+
+
+
+
