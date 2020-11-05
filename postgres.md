@@ -99,7 +99,57 @@ listen_addresses = '*'		# what IP address(es) to listen on;
 ```
 
 
+### allowing remote connection
 
+Edit this file vim  /var/lib/pgsql/13/data/pg_hba.conf and the lines at the end
+
+To allow password auth from spesific ip adress you can do it like 
+```
+host   all             all             10.21.2.2/32             scram-sha-256
+
+```
+ trust option allow connection without password
+
+```
+host   all             all             10.21.2.2/32              trust
+
+```
+
+Then restart postgres service
+```
+systemctl restart postgresql-13
+```
+
+### To create database
+
+first login to postgres user
+```
+su - postgres
+```
+```
+To login to postgres cli 
+```
+psql
+```
+Create database with owner
+```
+CREATE DATABASE etherpad WITH ENCODING='UTF8' OWNER=etherpad;
+```
+Create user 
+```
+ CREATE ROLE etherpad WITH LOGIN PASSWORD 'yourpass' VALID UNTIL 'infinity';
+```
+
+```
+show databases
+```
+\l+
+```
+
+to show storage dir
+```
+show data_directory;
+```
 
 
 
