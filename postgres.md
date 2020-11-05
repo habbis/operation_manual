@@ -46,6 +46,44 @@ sudo apt-get -y install postgresql
 ### storage 
 
 
+Setup storage on a seperate partition for db storage with lvm and xfs filesytem
+```
+pvcreate /dev/sdb
+
+vgcreate vgdb /dev/sdb
+
+lvcreate -n lvdb -L +49G vgdb
+
+ mkfs.xfs /dev/vgdb/lvdb
+```
+Stop database and backup the datadir of mariadb
+```
+ systemctl stop postgresql-13
+
+ cp -au  /var/lib/pgsql /var/lib/bk.pgsql 
+ 
+ rm -rf  /var/lib/pgsql
+```
+Then mount the lvvol in fstab and test mount it 
+
+`vim /etc/fstab`
+
+append at the end 
+
+```
+ database
+/dev/mapper/vgdb-lvdb /var/lib/pgsql  xfs defaults 0 0
+```
+Test mount and copy files from backup and give right permissions
+
+```
+mount -a 
+
+cp -au /var/lib/bk.pgsql * /var/lib/pgsql
+
+chown -R postgres:postgres /var/lib/pgsql
+
+
 
 ### allow what address postgres instance should listen to
 
@@ -59,6 +97,9 @@ listen_addresses = '*'		# what IP address(es) to listen on;
 					# comma-separated list of addresses;
 					# defaults to 'localhost'; use '*' for all
 ```
+
+
+
 
 
 
