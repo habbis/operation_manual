@@ -90,12 +90,12 @@ chown -R postgres:postgres /var/lib/pgsql
 The config file location 
 /var/lib/pgsql/13/data/postgresql.conf
 
-Change this line `listen_addresses` to ip address or localhost or '*' for all .
+Change this line listen_addresses to ip address or localhost or '*' for all .
 
 ```
-listen_addresses = '*'		# what IP address(es) to listen on;
-					# comma-separated list of addresses;
-					# defaults to 'localhost'; use '*' for all
+listen_addresses = '*' # what IP address(es) to listen on;
+		      # comma-separated list of addresses;
+		     # defaults to 'localhost'; use '*' for all
 ```
 
 
@@ -116,6 +116,7 @@ host   all             all             10.21.2.2/32              trust
 ```
 
 Then restart postgres service
+
 ```
 systemctl restart postgresql-13
 ```
@@ -123,33 +124,40 @@ systemctl restart postgresql-13
 ### To create database
 
 first login to postgres user
-```
-su - postgres
-```
+
+
+`su - postgres`
 
 To login to postgres cli 
-```
+
+
 psql
-```
+
 Create database with owner
-```
+
+
 CREATE DATABASE etherpad WITH ENCODING='UTF8' OWNER=etherpad;
-```
+
+
 Create user 
-```
- CREATE ROLE etherpad WITH LOGIN PASSWORD 'yourpass' VALID UNTIL 'infinity';
-```
 
 ```
+ CREATE ROLE etherpad WITH LOGIN PASSWORD 'yourpass' VALID UNTIL 'infinity'; 
+```
+
+
+
 show databases
-```
+
+
 \l+
-```
+
 
 to show storage dir
-```
+
+
 show data_directory;
-```
+
 
 
 
