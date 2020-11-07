@@ -134,9 +134,9 @@ first login to postgres user
 
 To login to postgres cli 
 
-
+```
 psql
-
+```
 Create database with owner
 
 
