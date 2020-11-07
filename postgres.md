@@ -27,6 +27,7 @@ sudo systemctl start postgresql-13
 ```
 
 ### ubuntu
+
 ```
 sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
 wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
@@ -36,6 +37,7 @@ sudo apt-get -y install postgresql
 ```
 
 ### debian
+
 ```
 sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
 wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
@@ -47,6 +49,7 @@ sudo apt-get -y install postgresql
 
 
 Setup storage on a seperate partition for db storage with lvm and xfs filesytem
+
 ```
 pvcreate /dev/sdb
 
@@ -57,6 +60,7 @@ lvcreate -n lvdb -L +49G vgdb
  mkfs.xfs /dev/vgdb/lvdb
 ```
 Stop database and backup the datadir of mariadb
+
 ```
  systemctl stop postgresql-13
 
@@ -66,7 +70,7 @@ Stop database and backup the datadir of mariadb
 ```
 Then mount the lvvol in fstab and test mount it 
 
-`vim /etc/fstab`
+vim /etc/fstab
 
 append at the end 
 
@@ -82,7 +86,7 @@ mount -a
 cp -au /var/lib/bk.pgsql * /var/lib/pgsql
 
 chown -R postgres:postgres /var/lib/pgsql
-
+```
 
 
 ### allow what address postgres instance should listen to
@@ -149,15 +153,15 @@ Create user
 
 show databases
 
-
+```
 \l+
-
+```
 
 to show storage dir
 
-
+```
 show data_directory;
-
+```
 
 
 
