@@ -2,14 +2,14 @@
 
 Network Files System (NFS).
 
-A bit of history:
+## A bit of history:
 
 Network File System (NFS) is a distributed file system protocol originally developed by Sun Microsystems in 1984, 
 allowing a user on a client computer to access files over a network in a manner similar to how local storage is accessed.
 
 
 
-Configuration
+## Configuration
 -------------
 
 Server
@@ -52,7 +52,7 @@ Whenever we modify /etc/exports, we must run:
 $ exportfs -a
 ```
 
-Centos7: 
+Centos/rhel: 
 
 If you have firewalld on the system  you must open for nfs shearing.
 
@@ -79,13 +79,13 @@ debian/Ubuntu 18.04:
 $ apt install nfs-kernel-server
 ```
 
-If exportfs wont on ubuntu restart service.
+If exportfs wont work on ubuntu restart service.
 
 ```
 $ systemctl restart nfs-kernel-server
 ```
 
-If you have ufw on the system you most open for nfs shearing.
+If you have ufw on the system you most open for nfs shares.
 
 ```
 $ ufw allow nfs 
@@ -119,7 +119,7 @@ To make the bind mount persistent across reboots, add it to fstab:
 /mnt/music /srv/nfs/music  none   bind   0   0
 ```
 
-Client:
+## Client:
 
 To mount manually first create an folder the place you want the 
 share to be mounted usual you give it the name of the nfs share.
