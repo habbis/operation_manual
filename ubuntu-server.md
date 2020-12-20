@@ -28,9 +28,10 @@ root@dlp:~# reboot
 Before installing, make sure the Driver Version for your Graphic Card on NVIDIA official site below.
 ⇒ https://www.nvidia.com/Download/index.aspx?lang=en
 # confirm the cards on your computer
+```
 
 root@dlp:~# lspci | grep VGA
-
+```
 04:00.0 VGA compatible controller: NVIDIA Corporation GP104 [GeForce GTX 1070] (rev a1)
 # install the driver for your card
 
