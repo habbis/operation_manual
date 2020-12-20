@@ -5,6 +5,12 @@
 Turn on unattended security
 dpkg-reconfigure -plow unattended-upgrades
 
+## Install NVIDIA Graphic Driver
+
+  	
+If your Computer has NVIDIA Graphic cards, Install NVIDIA Graphic Driver to improve Graphics related performance.
+[1] 	Disable [nouveau] driver that is loaded by default as generic graphic driver. 
+
 ```
 root@dlp:~# lsmod | grep nouveau
 
@@ -18,8 +24,9 @@ drm_kms_helper        184320  1 nouveau
 drm                   491520  4 drm_kms_helper,ttm,nouveau
 ```
 root@dlp:~# vi /etc/modprobe.d/blacklist-nouveau.conf
-# add to the end (create new if it does not exist)
 ```
+# add to the end (create new if it does not exist)
+
 blacklist nouveau
 options nouveau modeset=0
 root@dlp:~# update-initramfs -u
@@ -59,3 +66,7 @@ Fri Jul 24 19:15:19 2020
 |  No running processes found                                                 |
 +-----------------------------------------------------------------------------+
 ```
+
+links: 
+
+https://www.server-world.info/en/note?os=Ubuntu_20.04&p=nvidia&f=1
