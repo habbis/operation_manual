@@ -7,6 +7,20 @@ dpkg-reconfigure -plow unattended-upgrades
 
 ## Install NVIDIA Graphic Driver
 
+
+show drivers 
+
+```
+sudo Ubuntu-drivers devices
+```
+
+install drivers
+```
+sudo ubuntu-drivers autoinstall
+```
+
+
+
   	
 If your Computer has NVIDIA Graphic cards, Install NVIDIA Graphic Driver to improve Graphics related performance.
 [1] 	Disable [nouveau] driver that is loaded by default as generic graphic driver. 
