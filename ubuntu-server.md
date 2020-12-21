@@ -8,10 +8,16 @@ dpkg-reconfigure -plow unattended-upgrades
 ## Install NVIDIA Graphic Driver
 
 
+install 
+
+```
+apt install -y ubuntu-drivers
+```
+
 show drivers 
 
 ```
-sudo Ubuntu-drivers devices
+sudo ubuntu-drivers devices
 ```
 
 install drivers
