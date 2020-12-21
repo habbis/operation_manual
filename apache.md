@@ -37,3 +37,48 @@ config file
 </Directory>
 
 ```
+
+How you can use this with nginx reverse proxy 
+
+```
+  ssl_certificate /config/local.net.crt.pem;
+  ssl_certificate_key /config/local.net.key.pem;
+  ssl_session_timeout  5m;
+  access_log /var/log/nginx/access.log;
+  error_log /var/log/nginx/error.log;
+
+server {
+  listen 80; #default_server;
+  listen 443 ssl;
+  server_name *.local.net;
+  return 301 https://$host$request_uri;
+  #rewrite ^ https://$host$request_uri? permanent;
+  #ssl on;
+
+
+  #if ($http_x_forwarded_proto != 'https'){
+  #    return 301 https://$server_name$request_uri;
+  #}
+
+}
+
+
+server {
+  listen 443 ssl;
+  server_name yourhost.local.net;
+  #ssl on;
+  location / {
+    auth_request /auth;
+    ##try_files $uri $uri/ =404;
+    proxy_pass http://yourserver.intern.local.net/a:9000;
+
+  location = /auth {
+           proxy_pass http://ldapauth.intern.local.net/auth/;
+           proxy_pass_request_body off;
+           proxy_set_header Content-Length "";
+           proxy_set_header X-Original-URI $request_uri;
+   }
+  }
+
+
+```
