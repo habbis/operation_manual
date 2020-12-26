@@ -4,13 +4,21 @@ BIND : Configure for Internal Network
 2019/10/03
   	
 Install BIND to Configure DNS (Domain Name System) Server to provide Name or Address Resolution service for Clients.
+
+
+
 [1] 	Install BIND.
+```
 [root@dlp ~]# dnf -y install bind bind-utils
+```
+
 [2] 	On this example, Configure BIND for Internal Network.
 The example follows is for the case that Local network is [10.0.0.0/24], Domain name is [srv.world], Replace them to your own environment.
-[root@dlp ~]# vi /etc/named.conf
 
 ```
+[root@dlp ~]# vi /etc/named.conf
+
+
 # add : set ACL entry for local network
 acl internal-network {
         10.0.0.0/24;
@@ -99,5 +107,66 @@ OPTIONS="-4"
 # how to write           ⇒ 1.168.192.in-addr.arpa
 ```
 [3] 	
-Next, Configure Zone Files for each Zone you set in [named.conf] above.
-To Configure Zone Files, refer to here. 
+
+## BIND : Configure Zone Files
+2019/10/03
+  	
+Configure Zone Files for each Zone set in [named.conf].
+Replace Network or Domain name on the example below to your own environment.
+[1] 	Create zone files that servers resolve IP address from Domain name.
+The example below uses Internal network [10.0.0.0/24], Domain name [srv.world].
+Replace to your own environment.
+
+```
+[root@dlp ~]# vi /var/named/srv.world.lan
+
+$TTL 86400
+@   IN  SOA     dlp.srv.world. root.srv.world. (
+        # any numerical values are OK for serial number but
+        # recommendation is [YYYYMMDDnn] (update date + number)
+        2019100301  ;Serial
+        3600        ;Refresh
+        1800        ;Retry
+        604800      ;Expire
+        86400       ;Minimum TTL
+)
+        # define Name Server
+        IN  NS      dlp.srv.world.
+        # define Name Server's IP address
+        IN  A       10.0.0.30
+        # define Mail Exchanger Server
+        IN  MX 10   dlp.srv.world.
+
+# define each IP address of a hostname
+dlp     IN  A       10.0.0.30
+www     IN  A       10.0.0.31
+
+[2] 	Create zone files that servers resolve Domain name from IP address.
+The example below uses Internal network [10.0.0.0/24], Domain name [srv.world].
+Replace to your own environment.
+[root@dlp ~]# vi /var/named/0.0.10.db
+
+$TTL 86400
+@   IN  SOA     dlp.srv.world. root.srv.world. (
+        2019100301  ;Serial
+        3600        ;Refresh
+        1800        ;Retry
+        604800      ;Expire
+        86400       ;Minimum TTL
+)
+        # define Name Server
+        IN  NS      dlp.srv.world.
+
+# define each hostname of an IP address
+30      IN  PTR     dlp.srv.world.
+31      IN  PTR     www.srv.world.
+```
+[3] 	
+Next, Start BIND and Verify Name or Address Resolution, refer to here. 
+
+
+
+
+Links:
+
+https://www.server-world.info/en/note?os=CentOS_8&p=dns&f=1
