@@ -42,9 +42,7 @@ options {
         # add secondary DNS servers if it exist
         allow-transfer  { localhost; };
 
-        .....
-        .....
-
+        
         recursion yes;
 
         dnssec-enable yes;
