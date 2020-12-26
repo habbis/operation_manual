@@ -161,12 +161,94 @@ $TTL 86400
 30      IN  PTR     dlp.srv.world.
 31      IN  PTR     www.srv.world.
 ```
-[3] 	
-Next, Start BIND and Verify Name or Address Resolution, refer to here. 
+
+BIND : Verify Resolution
+2019/10/03
+[1] 	Start and Enable BIND.
+```
+[root@dlp ~]# systemctl enable --now named
+```
+[2] 	If Firewalld is running, allow DNS service. DNS uses [53/TCP,UDP].
+```
+[root@dlp ~]# firewall-cmd --add-service=dns --permanent
+
+success
+
+[root@dlp ~]# firewall-cmd --reload
+
+success
+```
+
+[3] 	Change DNS setting to refer to own DNS if need.
+(replace [ens2] to your own environment).
+```
+[root@dlp ~]# nmcli connection modify ens2 ipv4.dns 10.0.0.30
+
+[root@dlp ~]# nmcli connection down ens2; nmcli connection up ens2
+```
+
+[4] 	Verify Name and Address Resolution. If [ANSWER SECTION] is shown, that's OK.
+
+```
+[root@dlp ~]# dig dlp.srv.world.
 
 
+; <<>> DiG 9.11.4-P2-RedHat-9.11.4-17.P2.el8_0.1 <<>> dlp.srv.world.
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 4141
+;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 1, ADDITIONAL: 1
 
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 4096
+; COOKIE: 0e9ca06c44ffe5e20209ad655d954316681848d8675423ab (good)
+;; QUESTION SECTION:
+;dlp.srv.world.                 IN      A
+
+;; ANSWER SECTION:
+dlp.srv.world.          86400   IN      A       10.0.0.30
+
+;; AUTHORITY SECTION:
+srv.world.              86400   IN      NS      dlp.srv.world.
+
+;; Query time: 0 msec
+;; SERVER: 10.0.0.30#53(10.0.0.30)
+;; WHEN: Thu Oct 02 19:38:46 JST 2019
+;; MSG SIZE  rcvd: 100
+
+[root@dlp ~]# dig -x 10.0.0.30
+
+
+; <<>> DiG 9.11.4-P2-RedHat-9.11.4-17.P2.el8_0.1 <<>> -x 10.0.0.30
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 61063
+;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 1, ADDITIONAL: 2
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 4096
+; COOKIE: cf5c64acd453263666c674db5d9543400d47bea92e41b7e1 (good)
+;; QUESTION SECTION:
+;30.0.0.10.in-addr.arpa.                IN      PTR
+
+;; ANSWER SECTION:
+30.0.0.10.in-addr.arpa. 86400   IN      PTR     dlp.srv.world.
+
+;; AUTHORITY SECTION:
+0.0.10.in-addr.arpa.    86400   IN      NS      dlp.srv.world.
+
+;; ADDITIONAL SECTION:
+dlp.srv.world.          86400   IN      A       10.0.0.30
+
+;; Query time: 0 msec
+;; SERVER: 10.0.0.30#53(10.0.0.30)
+;; WHEN: Thu Oct 02 19:39:28 JST 2019
+;; MSG SIZE  rcvd: 136
+
+```
 
 Links:
 
 https://www.server-world.info/en/note?os=CentOS_8&p=dns&f=1
+https://www.server-world.info/en/note?os=CentOS_8&p=dns&f=3
+https://www.server-world.info/en/note?os=CentOS_8&p=dns&f=4
