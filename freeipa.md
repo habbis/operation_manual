@@ -44,3 +44,18 @@ Here is the command to open the firewall for freeipa
 firewall-cmd --zone=public --add-service=freeipa-ldap --add-service=freeipa-ldaps --add-service=freeipa-replication --add-service=ntp --add-service=  --add-service=http --add-service=https --permanent
 
 ```
+
+# setup freeip server rhel8/oralce linux 8 
+
+enable ipa-server module 
+
+```
+yum module enable idm:DL1
+```
+Then install ipa-server 
+```
+yum module install idm:DL1/dns
+```
+
+
+```
