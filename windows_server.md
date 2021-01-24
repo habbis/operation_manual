@@ -14,7 +14,7 @@
 update key when running evaluation
 ```
 dism /online /set-edition:ServerStandard /productkey:yourkey /accepteula
-``
+```
 
 remove cd key
 ```
