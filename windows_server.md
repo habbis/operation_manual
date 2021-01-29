@@ -26,4 +26,8 @@ update cd key
 slmgr.vbs -upk yourkey
 ```
 
+Get som info like what edition you are running
+```
+DISM /Online /Get-CurrentEdition
 
+```
