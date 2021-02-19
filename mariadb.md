@@ -281,6 +281,11 @@ Create database
 ```
 create database `yourdb`;
 ```
+Show database users and password
+```
+SELECT User, Host, Password FROM mysql.user;
+
+```
 
 Create user for database 
 
