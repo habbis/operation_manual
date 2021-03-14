@@ -31,8 +31,26 @@ config file
     AuthBasicProvider ldap
     AuthLDAPURL "ldap://yourhostname/CN=Users,DC=intern,DC=local,DC=net?sAMAccountName?sub?(objectClass=*)"
     AuthLDAPBindDN nginx-bind@intern.local.net
-    AuthLDAPBindPassword yourbinduseroass
+    AuthLDAPBindPassword yourbinduserpass
     Require ldap-group CN=yourgroup,OU=groups,DC=intern,DC=local,DC=net
+    Require valid-user
+</Directory>
+
+```
+freeipa example with openldap
+```
+<Directory "/var/www/html/auth">
+#<Directory "/">
+    #SSLRequireSSL
+    Options Indexes FollowSymlinks
+    AuthType Basic
+    AuthName "LDAP Authentication"
+    #AuthBasicAuthoritative Off
+    AuthBasicProvider ldap
+    AuthLDAPURL "ldap://ipa01:389/cn=users,dc=ipa,dc=local,dc=net?inetuser?sub?(objectClass=*)"
+    AuthLDAPBindDN nginx-bind@ipa.local.net
+    AuthLDAPBindPassword yourbinduserpass
+    Require ldap-group CN=yourgroup,OU=groups,dc=ipa,dc=local,dc
     Require valid-user
 </Directory>
 
