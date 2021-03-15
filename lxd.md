@@ -30,6 +30,10 @@ and here is a more general way.
 ```
 lxc launch yourimage yourname
 ```
+Limit memory usage of container
+```
+lxc config set yourcontainer limits.memory 1100M
+```
 Use a custom profile
 ```
 lxc launch -p yourprofile yourimage yourname
