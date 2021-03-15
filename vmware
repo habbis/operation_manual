@@ -35,7 +35,6 @@ new-datastore -Nfs -Name vmstorage02 -path "/mnt/larsen/vmstorage02" -NfsHost 10
 
 
 To disable this warning and set your preference use the following command and restart PowerShell: 
-
 Set-PowerCLIConfiguration -Scope User -ParticipateInCEIP $true or $false.
 
 ```
