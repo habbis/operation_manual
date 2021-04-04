@@ -11,7 +11,35 @@ build and publish containers to your gitlab account.
 in your repo first create a Dockerfile you can also set docker file commands in the gitlab-ci.yml file
 if you want. 
 
+You need to have build user see doc for more options i am going to use deploy tokens created under groups so
+it can only access project under that group.
 
+To create a deploy token for gitlab-ci 
+
+```
+
+groups --> yourgroup --> settings --> repository --> Deploy Tokens
+
+
+
+```
+
+Then to let gitlab default variables see the deploy token create user called `gitlab-deploy-token`
+```
+$CI_REGISTRY_USER = gitlab-deploy-token
+
+$CI_REGISTRY_PASSWORD = auto generated token for the user
+```
+
+
+
+Example dockerfile.
+```
+FROM debian:bullseye-slim
+ENV DEBIAN_FRONTEND=noninteractive
+RUN apt-get update -y && apt-get upgrade -y
+
+```
 
 
 Example .gitlab-ci.yml
@@ -28,7 +56,7 @@ stages:
   
 # variabels you can set and remmember that gitlab-ci also have inbuilt variables.
 variables:
-  API_REPOSITORY: $CI_REGISTRY/habbfarm/debian-bullseye-slim
+  API_REPOSITORY: $CI_REGISTRY/yourgroup/debian-bullseye-slim
   TAG: debian-bullseye-slim
 
 # command to run before 
@@ -45,3 +73,11 @@ build-docker:
     - master
 
 ```
+
+links: 
+
+https://snorre.io/blog/2018-02-14-building-docker-images-with-gitlab-ci/
+
+https://blog.callr.tech/building-docker-images-with-gitlab-ci-best-practices/
+
+https://www.freecodecamp.org/news/how-to-setup-ci-on-gitlab-using-docker-66e1e04dcdc2/
