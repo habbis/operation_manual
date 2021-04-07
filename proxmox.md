@@ -15,6 +15,10 @@ To remove the invalid subscription
 ```
 sed -Ezi.bak "s/(Ext.Msg.show\(\{\s+title: gettext\('No valid sub)/void\(\{ \/\/\1/g" /usr/share/javascript/proxmox-widget-toolkit/proxmoxlib.js && systemctl restart pveproxy.service 
 ```
+To convert a vmwaer disk to raw og qcow2 and copy all vmdk files.
+```
+qemu-img convert -f vmdk unifi01.vmdk -O qcow2 unifi01.qcow2
+```
 
 
 To setup vlan and bridges you can edit /etc/network/interface and on proxmox bridge must be named vmbr*
