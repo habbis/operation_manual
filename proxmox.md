@@ -19,8 +19,14 @@ To convert a vmwaer disk to raw og qcow2 and copy all vmdk files.
 ```
 qemu-img convert -f vmdk unifi01.vmdk -O qcow2 unifi01.qcow2
 ```
+179  vim /etc/pve/nodes/darkstar/qemu-server/104.conf
+  
+proxmox storage is at location /mnt .
 
-
+Example location of nfs.
+```
+/mnt/pve/vmstorage_service/images/104/
+```
 To setup vlan and bridges you can edit /etc/network/interface and on proxmox bridge must be named vmbr*
 
 ```
