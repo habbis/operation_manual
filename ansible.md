@@ -12,3 +12,8 @@ freeipa
 ```
 ansible-galaxy collection install freeipa.ansible_freeipa
 ```
+
+general
+```
+ansible-galaxy collection install community.general
+```
