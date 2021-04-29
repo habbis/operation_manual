@@ -36,3 +36,8 @@ install AD via powerhell
 ```
 Install-WindowsFeature -name AD-Domain-Services -IncludeManagementTools
 ```
+
+get property from regedit 
+```
+Get-ItemProperty HKLM:\your/path
+```
