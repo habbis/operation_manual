@@ -43,6 +43,7 @@ Get-ItemProperty HKLM:\your/path
 ```
 
 
+## AD domain controler replication error
 Having the error "Verification of outbound replication failed" when adding a new DC?
 
 So I had plans to create some redundancy for my domain by adding a slave domain controller. The primary domain controller was however somewhat obnoxious and returned an error when I tried to let my new domain controller join it.
