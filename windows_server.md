@@ -31,3 +31,8 @@ Get som info like what edition you are running
 DISM /Online /Get-CurrentEdition
 
 ```
+
+install AD via powerhell
+```
+Install-WindowsFeature -name AD-Domain-Services -IncludeManagementTools
+```
