@@ -86,7 +86,7 @@ drop user `gogs`@;
 ```
 delete database
 ```
-drop database;
+drop database yourdatabase;
 ```
 Grant user privileges to database
 ```
