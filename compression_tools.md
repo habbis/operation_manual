@@ -64,10 +64,34 @@ Decompress
 ```
 $ tar xJvf xzcompressed.tar.xz
 ```
+
+
+## Parallel Compression 
+
+To install the tools, you can just turn to your repos.
+
+```
+sudo apt install pigz pbzip2 pxz # Debian/Ubuntu
+sudo dnf install pigz pbzip2 pxz # Fedora
+sudo pacman -Sy pigz pbzip2 pxz   # Arch Linux
+```
+
+
+Using Parallel Compression Tools with Tar
+
+You can either tell tar to use a compression program with the --use-compression-program option, or you can use a little bit simpler command flag of -I. An example of the syntax for any of these tools would be like this:
+
+```
+tar -I pigz -cf linux-5.10-rc3.tar.gz linux/
+tar -I pbzip2 -cf linux-5.10-rc3.tar.bz2 linux/
+tar -I pxz -cf linux-5.10-rc3.tar.xz linux/
+```
+
 Source
 -------
 
 Link: 
 
+https://www.maketecheasier.com/compress-archives-using-all-cpu-cores-tar/
 
 [File compression Digitalocean](https://www.digitalocean.com/community/tutorials/an-introduction-to-file-compression-tools-on-linux-servers(
