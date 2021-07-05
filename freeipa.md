@@ -75,3 +75,39 @@ Here is example files
 
 I did download [isrg-root-x1-cross-signed.pem](https://letsencrypt.org/certs/isrg-root-x1-cross-signed.pem) and [dst-root-ca-x3](https://www.identrust.com/dst-root-ca-x3)
 
+when downloading this cert [DTSRoot CA certfile](https://www.identrust.com/certificates/trustid/root-download-x3.html) paste it into a file called
+`DTSRootCAX3.pem` so its easier to handle.
+
+[isrg-root-x1-cross-signed.pem](https://letsencrypt.org/certs/isrg-root-x1-cross-signed.pem) is alerdy ready to use. 
+
+
+setup certboot or other tools to download letsencrypt certs i use acme package with pfsense and the cloudflare api so sign certs.
+
+transfere all the cert to the ipa server i am placing the certs on `/etc/ssl/`
+
+Then import the ca cert into freeipa.
+```
+ipa-cacert-manage -n DTSRootCAX3 -t C,, install DTSRootCAX3.pem
+ipa-cacert-manage -n LetsEncryptX3 -t C,, install isrg-root-x1-cross-signed.pem
+```
+
+Then add the DTSRootCAX3.pem , isrg-root-x1-cross-signed.pem into a file called yourdomain.all.pem this file have both crt and key and chain. 
+Since i use acem with pfsense i do get that file and it should come with certbot. 
+
+```
+cat DTSRootCAX3.pem >> yourdomain.all.pem
+```
+```
+cat isrg-root-x1-cross-signed.pem >> yourdomain.all.pem
+```
+Install the cert into freeipa.
+```
+ipa-server-certinstall -w /etc/ssl/yourdomain.all.pem
+```
+
+Then stop and start freeipa services.
+```
+ipactl stop
+ipactl start
+```
+
