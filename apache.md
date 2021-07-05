@@ -50,7 +50,7 @@ freeipa example with openldap
     AuthLDAPURL "ldap://ipa01:389/cn=users,dc=ipa,dc=local,dc=net?inetuser?sub?(objectClass=*)"
     AuthLDAPBindDN nginx-bind@ipa.local.net
     AuthLDAPBindPassword yourbinduserpass
-    Require ldap-group CN=yourgroup,OU=groups,dc=ipa,dc=local,dc
+    Require ldap-group CN=yourgroup,OU=groups,dc=ipa,dc=local,dc=net
     Require valid-user
 </Directory>
 
