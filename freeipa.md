@@ -68,7 +68,7 @@ net.ipv6.conf.all.disable_ipv6 = 0
 
 ## LetsEncrypt setup with freeipa
 
-First download the CA certificate to get the trust [DTSRoot CA certfile](https://www.identrust.com/certificates/trustid/root-download-x3.html) and download the ca from [Let's Encrypt certfile](https://letsencrypt.org/certificates/) .
+First download the CA certificate to get the trust (DTSRoot CA certfile)[https://www.identrust.com/certificates/trustid/root-download-x3.html] and download the ca from [Let's Encrypt certfile](https://letsencrypt.org/certificates/) .
 
 Here is example files 
 
