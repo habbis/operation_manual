@@ -62,6 +62,7 @@ yum module install idm:DL1/dns
 
 Disable ipv6
 ```
+```
 net.ipv6.conf.all.disable_ipv6 = 0
 ```
 
