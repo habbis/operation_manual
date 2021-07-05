@@ -18,7 +18,7 @@ setup config file
 vim /etc/httpd/conf.d/authnz_ldap.conf  
 ```
 
-config file 
+config file example with active directory 
 
 ```
 <Directory "/var/www/html/auth">
