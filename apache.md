@@ -47,11 +47,11 @@ freeipa example with openldap
     AuthName "LDAP Authentication"
     #AuthBasicAuthoritative Off
     AuthBasicProvider ldap
-    AuthLDAPURL "ldap://ipa01:389/cn=users,dc=ipa,dc=local,dc=net?inetuser?sub?(objectClass=*)"
-    AuthLDAPBindDN nginx-bind@ipa.local.net
+    AuthLDAPURL "ldap://ipa01/cn=accounts,dc=ipa,dc=local,dc=net"
+    AuthLDAPBindDN "uid=nginx-bind,cn=users,cn=accounts,dc=ipa,dc=local,dc=net"
     AuthLDAPBindPassword yourbinduserpass
-    Require ldap-group CN=yourgroup,OU=groups,dc=ipa,dc=local,dc=net
-    Require valid-user
+    Require ldap-group CN=yourgroup,cn=groups,cn=accounts,dc=ipa,dc=local,dc=net
+    #Require valid-user
 </Directory>
 
 ```
