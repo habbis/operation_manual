@@ -65,3 +65,7 @@ This Rule will Allow FTP Traffic on 192.168.1.0/24 Netwok.
 Summary
 
 In This Tutorial We learned How to Allow IP From the UFW Firewall using ufw allow Command. As you learned, we can allow IP Address for All network traffic or to certain network ports.
+
+Link:
+
+https://www.configserverfirewall.com/ufw-ubuntu-firewall/ufw-allow-ip-address-ubuntu-firewall/
