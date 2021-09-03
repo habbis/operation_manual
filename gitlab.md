@@ -81,3 +81,10 @@ https://snorre.io/blog/2018-02-14-building-docker-images-with-gitlab-ci/
 https://blog.callr.tech/building-docker-images-with-gitlab-ci-best-practices/
 
 https://www.freecodecamp.org/news/how-to-setup-ci-on-gitlab-using-docker-66e1e04dcdc2/
+
+
+terraform related links:
+
+https://docs.gitlab.com/ee/user/infrastructure/iac/terraform_state.html#get-started-using-local-development
+
+https://docs.gitlab.com/ee/user/infrastructure/iac/terraform_state.html
