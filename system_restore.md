@@ -16,6 +16,8 @@ changes.
 mount -o remount,rw /sysroot
 chroot /sysroot
 
+do your changes 
+
 ```
 Then after anny changes 
 ```
