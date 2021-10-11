@@ -139,9 +139,9 @@ psql
 ```
 Create database with owner
 
-
+```
 CREATE DATABASE etherpad WITH ENCODING='UTF8' OWNER=etherpad;
-
+```
 
 Create user 
 
@@ -149,6 +149,11 @@ Create user
  CREATE ROLE etherpad WITH LOGIN PASSWORD 'yourpass' VALID UNTIL 'infinity'; 
 ```
 
+grant user acces to db 
+
+```
+grant all privileges on database yourdatabase to youruser;
+```
 
 
 show databases
