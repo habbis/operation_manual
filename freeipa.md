@@ -57,9 +57,6 @@ Then install ipa-server
 yum module install idm:DL1/dns
 ```
 
-
-```
-
 Disable ipv6
 ```
 vim /etc/sysctl.conf
