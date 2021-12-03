@@ -62,12 +62,19 @@ yum module install idm:DL1/dns
 
 Disable ipv6
 ```
+vim /etc/sysctl.conf
+```
+Then to paste in
 ```
 net.ipv6.conf.all.disable_ipv6 = 0
 ```
+Then to enable the setting
+```
+sysctl -p
+```
 
 
-## LetsEncrypt setup with freeipa
+## Testing LetsEncrypt setup with freeipa
 
 First download the CA certificate to get the trust [DTSRoot CA certfile](https://www.identrust.com/certificates/trustid/root-download-x3.html) and download the ca from [Let's Encrypt certfile](https://letsencrypt.org/certificates/) .
 
