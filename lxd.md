@@ -72,6 +72,14 @@ To launch a container with nesting
 ```
 lxc launch ubuntu nestc1 -c security.nesting=true 
 ```
+
+Set nesting with existing container
+
+```
+lxc config set nestc1 security.nesting true
+```
+
+
 If you want a priviliged container(its not recommended to use privliged)
 ```
 lxc launch ubuntu nestc1 -c security.nesting=true -c security.privileged=true
