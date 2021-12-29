@@ -65,6 +65,33 @@ lxc launch ubuntu: CONTAINER -p default -p dev
 
 
 ```
+
+setup networking with cloud-init.
+
+```
+version: 1
+config:
+  - type: physical
+    name: eth0
+    subnets:
+      - type: static
+        address: 10.44.33.4/24
+        gateway: 10.44.33.1
+        dns_nameservers:
+          - 8.8.8.8
+          - 1.1.1.1
+        dns_search:
+          - no.habbfarm.net
+
+```
+
+To launch container with networking cloud-init.
+
+```
+lxc launch ub2004-tmpl-online hf-puppet02  --profile foreman  --config=user.network-config="$(cat network.yml)"
+```
+
+
 run docker inside a lxc container managed by lxd use nesting and this is a similar thing like vm nesting but this is not hardware based like with a hardware virtualization.
 
 To launch a container with nesting 
