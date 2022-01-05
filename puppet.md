@@ -74,6 +74,20 @@ Add the fqdn of your puppet server.
 server = puppet.local.net
 ```
 
+Then on ubuntu and debian restart puppet server you should see no errors.
+
+```
+systemctl restart puppetserver.service
+```
+
+On rhel you must enable and start the puppet server service here 
+is the one liner.
+
+```
+systemctl enable --now puppetserver.service
+```
+
+Then you add puppet classes. 
 
 
 
