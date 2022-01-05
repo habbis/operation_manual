@@ -58,6 +58,12 @@ Add puppet bin to path.
 echo 'export PATH=$PATH:/opt/puppetlabs/bin/' >> /etc/profile
 ```
 
+Make the change active.
+
+```
+source /etc/profile
+```
+
 Add  fqdn to hosts file.
 ```
 vim /etc/hosts
@@ -137,7 +143,19 @@ Add the fqdn of your puppet server .
 [main]
 server = puppet.local.net
 ```
+To generate puppet client signing request so you can 
+do changes to the node.
 
+This command is also the same as running puppet manualy.
+```
+/opt/puppetlabs/bin/puppet agent -tv
+```
+If you are having problems delete ssl folder and 
+crate new sign request.
+
+```
+rm -rf /etc/puppetlabs/puppet/ssl
+```
 
 Then you add puppet classes. 
 
