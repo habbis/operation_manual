@@ -59,7 +59,7 @@ vim /etc/hosts
 
 Then add it like this.
 ```
-27.0.0.1       localhost.localdomain   localhost
+127.0.0.1       localhost.localdomain   localhost
 yourip   puppet.local.net     puppet
 ```
 
