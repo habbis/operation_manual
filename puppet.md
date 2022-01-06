@@ -157,6 +157,26 @@ crate new sign request.
 rm -rf /etc/puppetlabs/puppet/ssl
 ```
 
+Then on the puppet server you can list the request.
+
+```
+/opt/puppetlabs/bin/puppetserver ca list
+```
+
+Then sign the request.
+
+```
+/opt/puppetlabs/bin/puppetserver ca sign --certname dev01.local.net,you-can-sign-more-at-the-same-time
+```
+
+Then on the client run the puppet agent command again
+so it will complete the setup between client and server.
+
+```
+/opt/puppetlabs/bin/puppet agent -t
+```
+
+
 Then you add puppet classes. 
 
 I like to add my custom classes to 
