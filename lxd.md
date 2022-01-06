@@ -8,6 +8,14 @@ List remote lxc images made by canonical.
 ```
 lxc  image list images:
 ```
+
+List remote lxc images with filter.
+
+```
+lxc  image list images: debian amd64
+```
+
+
 Copy a image 
 ```
 lxc image copy images:imageid local: --alias=yourname --auto-update
