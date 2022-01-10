@@ -21,19 +21,52 @@ You have
 - remote
 - sqlite
 - tinydns
+- pipe
+- unixodbc
+- lmdb
+- bind
+- geoip
 
 
 In this guide we will focus on mysql and postgresql see powerdns doc for more options.
 
-Installing the packages
+Installing the packages for powerdns authoritative server.
 
 debian/ubuntu
 
 ```
+apt install -y pdns-server pdns-tools
 ```
-rhel 8 based - you need epel first
+rhel 8 based - you need epel first.
 
 ```
 dnf install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
 ```
+On rocky linux and alma linux .
+
+```
+epel-release
+```
+
+```
+yum install -y pdns pdns-tools
+```
+
+Then setup the mysql/mariadb .
+
+Install mariadb and powerdns mysql backend.
+
+debian/ubuntu
+```
+apt install -y mariadb-server pdns-backend-mysql
+```
+
+rhel 8 based
+
+```
+yum install -y pdns-backend-mysql
+```
+
+
+
 
