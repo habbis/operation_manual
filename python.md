@@ -8,12 +8,12 @@ Installing extra packages for installing python3.10 form source.
 
 Rhel based.
 ```
-yum install gcc openssl-devel libffi-devel bzip2-devel wget
+yum install -y  gcc openssl-devel libffi-devel bzip2-devel wget
 ```
 
 Debian based.
 ```
-apt install build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev libsqlite3-dev wget libbz2-dev
+apt install -y build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev libsqlite3-dev wget libbz2-dev
 ```
 
 Going to path here i will download python3.10 .
