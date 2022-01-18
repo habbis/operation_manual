@@ -177,38 +177,7 @@ so it will complete the setup between client and server.
 ```
 
 
-Then you add puppet classes. 
 
-I like to add my custom classes to 
-
-```
-/etc/puppetlabs/code/modules/
-```
-
-To install puppet class from puppet [forge](https://forge.puppet.com/).
-
-```
-puppet module uninstall puppetlabs-accounts
-  
-```
-
-Then to remove.
-
-```
-puppet module uninstall ploperations-account
-```
-
-To list installed modules.
-
-```
-puppet module list
-```
-
-To create a inventory.
-
-```
-vim /etc/puppetlabs/code/environments/production/manifests/site.pp
-```
 
 How inventory looks like.
 
@@ -297,6 +266,43 @@ At the end of the file addd.
 modulepath =  /etc/puppetlabs/code/environments/production/modules:modules:$basemodulepath
 ```
 
+### puppet modules 
+
+Tp add puppet classes. 
+
+I like to add my custom classes to 
+
+```
+/etc/puppetlabs/code/modules/
+```
+
+To install puppet class from puppet [forge](https://forge.puppet.com/).
+
+```
+puppet module uninstall puppetlabs-accounts
+  
+```
+
+Then to remove.
+
+```
+puppet module uninstall ploperations-account
+```
+
+To list installed modules.
+
+```
+puppet module list
+```
+
+To create a inventory.
+
+```
+vim /etc/puppetlabs/code/environments/production/manifests/site.pp
+```
+
+
+
 Nice puppet module to have
 ```
  # manage puppetdb
@@ -309,8 +315,11 @@ Nice puppet module to have
  puppet module install puppetlabs-mysql
 ```
 
+Some of my own.
 
 
+[puppet_homelab](https://github.com/habbis/puppet_homelab])
+[pve](https://github.com/habbis/pve)
 
 
 
