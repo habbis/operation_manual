@@ -99,6 +99,8 @@ is the one liner.
 systemctl enable --now puppetserver.service
 ```
 
+### puppet agent
+
 Adding node to puppet server.
 
 Use the same repos as when installing puppet server but only install 
@@ -143,6 +145,17 @@ Add the fqdn of your puppet server .
 [main]
 server = puppet.local.net
 ```
+
+To add customer runtime of puppet in puppet.conf and
+the default is 30m 
+```
+[main]
+server = puppet.local.net
+# runinterval = 30m
+runinterval = 1h
+
+```
+
 To generate puppet client signing request so you can 
 do changes to the node.
 
@@ -301,6 +314,17 @@ To create a inventory.
 vim /etc/puppetlabs/code/environments/production/manifests/site.pp
 ```
 
+Then to enable client to run on diffrent environments add this to puppet.conf .
+```
+ cat /etc/puppetlabs/puppet/puppet.conf
+```
+Then add this environments under main.
+```
+ [main]
+server = puppet.local.net
+environment = dev
+runinterval = 30m
+```
 
 
 Nice puppet module to have
