@@ -342,8 +342,8 @@ Nice puppet module to have
 Some of my own.
 
 
-[puppet_homelab](https://github.com/habbis/puppet_homelab])
-[pve](https://github.com/habbis/pve)
+- [puppet_homelab](https://github.com/habbis/puppet_homelab])
+- [pve](https://github.com/habbis/pve)
 
 
 
