@@ -254,7 +254,60 @@ node 'dev01.local.net' {
 }
 ```
 
+### puppet environtments
 
+Puppet environtments can be used to isolate host more logicaly like having diffrent customer per environtments. But they hare not hundred percent isolated. If dev and prod should not be mixed have seperate puppet servers instead.
+
+
+Adding custom environtments.
+
+```
+cp /etc/puppetlabs/code/environments/production /etc/puppetlabs/code/environments/production/dev
+
+```
+
+To create a inventory.
+
+```
+vim /etc/puppetlabs/code/environments/dev/manifests/site.pp
+```
+
+Then you have new environtments if you have added nothing to production
+then there is no config that will make problem for you.
+
+
+What module paths  dev environment have access by default is these.
+````
+/etc/puppetlabs/code/environments/dev/modules
+/etc/puppetlabs/code/modules
+/opt/puppetlabs/puppet/modules
+````
+
+You can check it with this command.
+```
+puppet config print modulepath --section server --environment dev
+```
+
+If you want dev access production you can add this to environment.conf .
+```
+vim environment.conf
+```
+At the end of the file addd.
+```
+modulepath =  /etc/puppetlabs/code/environments/production/modules:modules:$basemodulepath
+```
+
+Nice puppet module to have
+```
+ # manage puppetdb
+ puppet module install puppetlabs-puppetdb
+ 
+ # manage docker
+ puppet module install puppetlabs-docker
+ 
+ # manage mysql
+ puppet module install puppetlabs-mysql
+```
 
 
 
