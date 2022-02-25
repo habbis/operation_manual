@@ -50,6 +50,7 @@ vrrp_script chk_wg0 {
 
 # Configuration for Virtual Interface
 vrrp_instance LB_VIP {
+    # choose the your interface
     interface eth0
     state MASTER        # set to BACKUP on the peer machine
     priority 101        # set to  99 on the peer machine
@@ -62,14 +63,14 @@ vrrp_instance LB_VIP {
         # pass only for keepalived
         auth_pass yourpass    # Password for accessing vrrpd. Same on all devices
     }
-    unicast_src_ip 10.31.26.4 # Private IP address of master
+    unicast_src_ip 192.168.4 # Private IP address of master
     unicast_peer {
-        10.31.26.5              # Private IP address of the backup haproxy
+        192.168.26.5              # Private IP address of the backup wireguard
    }
 
     # The virtual ip address shared between the two loadbalancers
     virtual_ipaddress {
-        10.31.26.21
+        192.168.26.21
     }
 
     # Use the Defined Script to Check whether to initiate a fail over
@@ -79,6 +80,60 @@ vrrp_instance LB_VIP {
 
 
 ```
+
+Then enable and start service may only be needed on rhel based distro.
+```
+systemctl enable --now keepalived.service
+```
+
+
+Backup config.
+
+```
+vim /etc/keepalived/keepalived.conf 
+
+```
+
+```
+vrrp_script chk_wg0 { 
+    script "/usr/bin/killall -0 wg-crypt-wg0"
+    interval 2 
+    weight 2 
+}
+  
+vrrp_instance LB_VIP {
+    # choose the your interface
+    interface eth0
+    state BACKUP
+    priority 100
+    virtual_router_id 51
+  
+  
+    authentication {
+        auth_type PASS
+        auth_pass yourpass
+    }
+    unicast_src_ip 192.168.26.5 # Private IP address of the backup wireguard
+    unicast_peer {
+        192.168.26.4      # Private IP address of the master wireguard
+   }
+  
+    virtual_ipaddress {
+        192.168.26.21
+    }
+     
+    track_script {
+        chk_wg0
+    }
+}
+
+```
+
+
+
+
+
+
 
 
 
