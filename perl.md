@@ -79,5 +79,29 @@ In this example is the proxmox module.
 perl -MCPAN -e 'install Net::Proxmox::VE'
 ```
 
+### Running Perl programs
 
+To run a Perl program from the Unix command line:
 
+```
+perl progname.pl
+```
+
+Alternatively, put this as the first line of your script:
+```
+#!/usr/bin/env perl
+```
+
+... and run the script as /path/to/script.pl. Of course, it'll need to be executable first, so chmod 755 script.pl (under Unix).
+
+(This start line assumes you have the env program. You can also put directly the path to your perl executable, like in #!/usr/bin/perl).
+
+For more information, including instructions for other platforms such as Windows and Mac OS, read perlrun.
+Safety net
+
+Perl by default is very forgiving. In order to make it more robust it is recommended to start every program with the following lines:
+```
+#!/usr/bin/perl
+use strict;
+use warnings;
+```
