@@ -13,7 +13,7 @@ debian based.
 apt install -y perl
 ```
 
-## There are also perl modules in the distro package manager.
+### There are also perl modules in the distro package manager.
 
 rhel based installing sftp client
 ```
@@ -24,7 +24,7 @@ debian based installing sftp client
 apt install -y libnet-sftp-foreign-perl
 ```
 
-## Setup CPAN for installing perl modules
+### Setup CPAN for installing perl modules
 
 rehl based
 ```
@@ -70,7 +70,7 @@ What approach do you want?  (Choose 'local::lib', 'sudo' or 'manual')
 ```
 
 
-## Then to install perl module from cpan.
+### Then to install perl module from cpan.
 
 
 In this example is the proxmox module.
