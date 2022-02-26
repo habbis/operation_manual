@@ -33,9 +33,10 @@ rehl based
 
 debian based.
 ```
-apt install -y libpath-tiny-Perl
+apt install -y libpath-tiny-perl
 ```
 
+Then to install perl module from cpan.
 
 
 
