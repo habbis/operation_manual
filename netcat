@@ -1,0 +1,92 @@
+# netcat
+
+
+
+## test open port
+
+tcp test
+```
+nc -zv yourhost 22
+```
+output 
+```
+Connection to yourhost 22 port [tcp/ssh] succeeded!
+
+```
+
+udp test
+
+```
+nc -zvu yourhost 22
+```
+
+out put 
+
+```
+Connection to yourhost 123 port [udp/ntp] succeeded!
+
+```
+
+Send files with netcat and its compressed while sending with pigz and tar.
+
+To install the tools, you can just turn to your repos and FYI rhel may need epel installed.
+
+```
+# Debian/Ubuntu
+sudo apt install pigz pbzip2 pxz screen tmux
+# Fedora/rhel
+sudo dnf install pigz pbzip2 pxz screen tmux
+# Arch Linux
+sudo pacman -Sy pigz pbzip2 pxz screen tmux
+```
+
+Tips use screen or tmux so your can start it in the background.
+
+To use screen just type it in the terminal.
+
+```
+screen
+```
+
+To detached.
+```
+ctrl a + d
+```
+
+To attach.
+```
+screen -r 
+```
+
+To use tmux just type it in the terminal.
+
+```
+tmux
+```
+
+To detached.
+```
+ctrl b + d
+```
+
+To attach.
+```
+tmux at
+```
+
+
+First start the process on the reciver host.
+```
+cd /your/recive/folder ; nc -l -p 34345 | pigz -d | pv | tar -xf - ; cd 
+
+```
+
+
+On the sender of files.
+
+```
+cd /yourfolder ; tar -cf - * | pv  | pigz -c | nc yourhost 34345 ; cd
+```
+
+
+
