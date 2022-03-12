@@ -244,7 +244,7 @@ Puppet environtments can be used to isolate host more logicaly like having diffr
 Adding custom environtments.
 
 ```
-cp /etc/puppetlabs/code/environments/production /etc/puppetlabs/code/environments/production/dev
+cp /etc/puppetlabs/code/environments/production /etc/puppetlabs/code/environments/dev
 
 ```
 
