@@ -22,10 +22,20 @@ chown www-data.www-data /var/www/html/auth -R
 chown apache:apache /var/www/html/auth -R 
 ```
 
-setup config file
+rhel setup 
 ```
 vim /etc/httpd/conf.d/authnz_ldap.conf  
 ```
+
+debian/ubuntu
+```
+/etc/apache2/sites-available/authnz_ldap.conf
+```
+After its done symlink to site-enabled so its active.
+```
+ln -s  /etc/apache2/sites-available/auth_ldap.conf /etc/apache2/sites-enabled/
+```
+
 
 config file example with active directory 
 
