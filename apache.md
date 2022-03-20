@@ -9,7 +9,7 @@ mkdir /var/www/html/auth
 ```
 debian/ubuntu
 ```
-apt install -y apache2 
+apt install -y apache2 libapache2-mod-webauthldap
 ```
 enable ldap auth.
 ```
