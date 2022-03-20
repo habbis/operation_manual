@@ -1,12 +1,21 @@
 
 # ldap auth apace 
 
-centos 
+rhel
 ```
-dnf -y install mod_ldap                                                                                                                                                                                    
+dnf -y install mod_ldap httpd                                                                                                                                                                                   
 systemctl restart httpd                                                                                                                                                                                     
 mkdir /var/www/html/auth 
 ```
+debian/ubuntu
+```
+apt install -y apache2 
+```
+enable ldap auth.
+```
+a2enmod ldap authz_ldap
+```
+
 permissions 
 ```
 chown www-data.www-data /var/www/html/auth -R                                                                                                                                                               
