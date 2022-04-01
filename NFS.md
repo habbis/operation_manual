@@ -45,7 +45,7 @@ its best not use no_root_squash use instead all_squash
 
 ```
 /yourshare          192.168.1.101(rw,sync,no_root_squash,no_subtree_check)
-/path/to/share        192.168.1.101(rw,sync,all_squash)
+/path/to/share        192.168.1.101(rw,async,all_squash)
 /path/to/share        192.168.1.101(rw,sync,no_subtree_check)
 ```
 (The no_root_squash option makes that /yourshare will be accessed as root.)
