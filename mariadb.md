@@ -303,11 +303,11 @@ create user `gogs`@10.2.1.2 identified by 'yourpass';
 
 Delete user
 ```
-drop user `gogs`@yourip;
+drop user 'gogs'@'yourip';
 ```
 remove user when ip is blank
 ```
-drop user `gogs`@;
+drop user 'gogs'@;
 ```
 delete database
 ```
@@ -315,7 +315,7 @@ drop database;
 ```
 Grant user privileges to database
 ```
-grant all privileges on `gogs`.* to `gogs`@;
+grant all privileges on `gogs`.* to 'gogs'@;
 ```
 Show what your user privileges
 ```
