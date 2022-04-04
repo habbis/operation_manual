@@ -77,6 +77,7 @@ vrrp_instance LB_VIP {
     track_script {
         chk_wg0
     }
+}
 
 
 ```
