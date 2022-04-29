@@ -51,6 +51,41 @@ smtp_sasl_security_options = noanonymous
 
 ```
 
+Add password for username and password for email provider in this example google.
+
+vim /etc/postfix/sasl_passwd
+
+```
+[smtp.gmail.com]:587    USERNAME@gmail.com:PASSWORD
+
+```
+
+Fix permission and update postfix config to use sasl_passwd file:
+
+```
+chmod 400 /etc/postfix/sasl_passwd
+postmap /etc/postfix/sasl_passwd
+```
+
+Reload postfix.
+
+```
+/etc/init.d/postfix reload
+```
+
+Send test email.
+
+```
+echo "Test mail from postfix" | mail -s "Test Postfix" you@example.com
+```
+
+Wheck logs for problems.
+
+```
+tail -f /var/log/mail.log
+```
+
+
 
 Link: 
 
