@@ -53,7 +53,10 @@ smtp_sasl_security_options = noanonymous
 
 Add password for username and password for email provider in this example google.
 
+
+```
 vim /etc/postfix/sasl_passwd
+```
 
 ```
 [smtp.gmail.com]:587    USERNAME@gmail.com:PASSWORD
