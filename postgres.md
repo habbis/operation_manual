@@ -59,7 +59,7 @@ lvcreate -n lvdb -L +49G vgdb
 
  mkfs.xfs /dev/vgdb/lvdb
 ```
-Stop database and backup the datadir of mariadb
+Stop database and backup the datadir of postgres
 
 ```
  systemctl stop postgresql-13
