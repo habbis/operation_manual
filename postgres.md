@@ -75,7 +75,7 @@ vim /etc/fstab
 append at the end 
 
 ```
- database
+ # database dir
 /dev/mapper/vgdb-lvdb /var/lib/pgsql  xfs defaults 0 0
 ```
 Test mount and copy files from backup and give right permissions
