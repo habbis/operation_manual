@@ -173,7 +173,7 @@ rm -rf /etc/puppetlabs/puppet/ssl
 Then on the puppet server you can list the request.
 
 ```
-/opt/puppetlabs/bin/puppetserver ca list
+/opt/puppetlabs/bin/puppetserver ca --list
 ```
 
 Then sign the request.
