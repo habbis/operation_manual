@@ -173,13 +173,17 @@ rm -rf /etc/puppetlabs/puppet/ssl
 Then on the puppet server you can list the request.
 
 ```
-/opt/puppetlabs/bin/puppetserver ca --list
+/opt/puppetlabs/bin/puppetserver ca --list or /opt/puppetlabs/bin/puppetserver ca list
 ```
 
 Then sign the request.
 
 ```
 /opt/puppetlabs/bin/puppetserver ca sign --certname dev01.local.net,you-can-sign-more-at-the-same-time
+
+or
+
+/opt/puppetlabs/bin/puppetserver ca --sign --certname dev01.local.net,you-can-sign-more-at-the-same-time
 ```
 
 Then on the client run the puppet agent command again
