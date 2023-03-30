@@ -1,4 +1,4 @@
-# System Restore
+# system restore login rhel
 
 When at the Grub menu and selecting the boot kernel press `e` .
 then at the end on the line starting with linux then press `End` if it dont work just use the arror keys to get to the end . 
