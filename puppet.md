@@ -23,6 +23,11 @@ rhel 8
 https://yum.puppet.com/puppet7-release-el-8.noarch.rpm
 ```
 
+rhel 9
+```
+https://yum.puppet.com/puppet7-release-el-9.noarch.rpm
+```
+
 #### puppet 6
 
 ubuntu 20.04
