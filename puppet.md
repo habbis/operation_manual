@@ -206,6 +206,11 @@ How inventory looks like.
 after adding a node add your classes inside {} .
 
 ```
+node default {
+
+}
+
+
 node 'puppet.local.net' {
 
   # Configure puppetdb and its underlying database
