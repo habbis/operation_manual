@@ -84,6 +84,60 @@ The name of the systemd service.
 systemctl status kea-dhcp4-server.service
 ```
 
+Example dhcp4 file with pxe boot from tftp server with pxelinux0 replace `next-server": "192.168.1.2` with your
+tftp server.
+
+```
+{
+"Dhcp4": {
+    "interfaces-config": {
+        "interfaces": ["eth0"]
+    },
+
+    "lease-database": {
+        "type": "memfile",
+        "persist": true,
+        "name": "/var/lib/kea/kea-leases4.csv",
+        "lfc-interval": 3600
+    },
+
+    "renew-timer": 15840,
+    "rebind-timer": 27720,
+    "valid-lifetime": 31680,
+
+    "option-data": [
+        {
+            "name": "domain-name-servers",
+            "data": "1.1.1.1, 8.8.8.8"
+        },
+
+        {
+            "name": "domain-search",
+            "data": "local.net"
+        }
+    ],
+
+    "subnet4": [
+        {
+            "subnet": "192.168.1.0/24",
+            "next-server": "192.168.1.2",
+            "boot-file-name": "pxelinux.0",
+            "pools": [ { "pool": "192.168.1.50 - 192.168.1.100" } ],
+            "option-data": [
+                {
+                    "name": "routers",
+                    "data": "192.168.1.1"
+                }
+            ]
+
+        }
+
+    ]
+}
+}
+```
+
+
 
 ## Kea dhcp doc 
 
