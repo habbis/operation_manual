@@ -79,7 +79,10 @@ Remember to to change interface eth0 to your own.
 }
 ```
 
-
+The name of the systemd service.
+```
+systemctl status kea-dhcp4-server.service
+```
 
 
 ## Kea dhcp doc 
