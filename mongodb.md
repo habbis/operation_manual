@@ -59,17 +59,6 @@ db.createUser(
     roles: [ { role: "userAdminAnyDatabase", db: "admin" } ]
   }
 )
-
-Successfully added user: {
-	"user" : "mongoAdmin",
-	"roles" : [
-		{
-			"role" : "userAdminAnyDatabase",
-			"db" : "admin"
-		}
-	]
-}
-
 ```
 
 To test the changes, access the mongo shell using the administrative user you have previously created:
