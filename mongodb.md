@@ -60,10 +60,16 @@ db.createUser(
   }
 )
 ```
+To list users
+```
+show users
+```
+
+
 
 To test the changes, access the mongo shell using the administrative user you have previously created:
 ```
-mongo -u mongoAdmin -p --authenticationDatabase admin
+mongosh -u mongoAdmin -p --authenticationDatabase admin
 ```
 
 
