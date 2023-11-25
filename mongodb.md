@@ -150,6 +150,67 @@ security:
 
 ```
 
+## Creating databse and user
+
+ Start by issuing a use command. The use command is typically used to switch to a specific database. However, MongoDB creates a new database if one does not exist.
+
+```
+use example_db
+```
+List databases
+```
+show dbs
+```
+Create user and give access to database
+
+Use the database you are going to give access to
+```
+use example_db
+```
+Create user with read and write
+```
+db.createUser(
+ {
+   user: "reportsUser",
+   pwd: passwordPrompt(),  // or cleartext password if you wish
+   roles: [
+      { role: "readWrite", db: "example_db" }
+   ]
+ }
+)
+```
+Create user with read only 
+```
+db.createUser(
+ {
+   user: "reportsUser",
+   pwd: passwordPrompt(),  // or cleartext password if you wish
+   roles: [
+      { role: "read", db: "example_db" }
+   ]
+ }
+)
+```
+
+user with multipule databases accesss
+```
+db.createUser(
+ {
+   user: "reportsUser",
+   pwd: passwordPrompt(),  // or cleartext password if you wish
+   roles: [
+      { role: "read", db: "reporting" },
+      { role: "read", db: "products" },
+      { role: "read", db: "sales" },
+      { role: "readWrite", db: "accounts" }
+   ]
+ }
+)
+```
+
+
+
+
 
 
 
