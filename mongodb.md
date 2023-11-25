@@ -45,6 +45,8 @@ Login into mongodb shell
 mongo
 ```
 
+## securing mongodb
+
 From inside the MongoDB shell, type the following command to connect to the admin database
 ```
 use admin
@@ -65,12 +67,91 @@ To list users
 show users
 ```
 
-
-
 To test the changes, access the mongo shell using the administrative user you have previously created:
 ```
 mongosh -u mongoAdmin -p --authenticationDatabase admin
 ```
+
+To enable authorization edit /etc/mongod.conf
+```
+vim /etc/mongod.conf
+```
+Add this under security and uncomment
+```
+security:
+  authorization: enabled
+```
+
+## remote connection over the network
+
+If you want to enable connection to mongodb over the network change
+```
+net:
+  port: 27017
+  bindIp: 127.0.0.1
+```
+To either listen on spesific ip address or all interfaces
+
+Spesific ip
+```
+net:
+  port: 27017
+  bindIp: 192.168.1.2
+```
+
+All interfaces 
+```
+net:
+  port: 27017
+  bindIp: 0.0.0.0
+```
+
+Example mongodb.conf
+```
+# mongod.conf
+
+# for documentation of all options, see:
+#   http://docs.mongodb.org/manual/reference/configuration-options/
+
+# Where and how to store data.
+storage:
+  dbPath: /var/lib/mongodb
+#  engine:
+#  wiredTiger:
+
+# where to write logging data.
+systemLog:
+  destination: file
+  logAppend: true
+  path: /var/log/mongodb/mongod.log
+
+# network interfaces
+net:
+  port: 27017
+  bindIp: 0.0.0.0
+
+
+# how the process runs
+processManagement:
+  timeZoneInfo: /usr/share/zoneinfo
+
+security:
+  authorization: enabled
+
+#operationProfiling:
+
+#replication:
+
+#sharding:
+
+## Enterprise-Only Options:
+
+#auditLog:
+
+```
+
+
+
 
 
 Links:
