@@ -36,3 +36,51 @@ To use the mongodb shell
 ```
 mongosh
 ```
+
+Creating Administrative MongoDB User
+
+Login into mongodb shell 
+
+```
+mongo
+```
+
+From inside the MongoDB shell, type the following command to connect to the admin database
+```
+use admin
+```
+
+Issue the following command to create a new user named mongoAdmin with the userAdminAnyDatabase role
+```
+db.createUser(
+  {
+    user: "mongoAdmin", 
+    pwd: "changeMe", 
+    roles: [ { role: "userAdminAnyDatabase", db: "admin" } ]
+  }
+)
+
+Successfully added user: {
+	"user" : "mongoAdmin",
+	"roles" : [
+		{
+			"role" : "userAdminAnyDatabase",
+			"db" : "admin"
+		}
+	]
+}
+
+```
+
+To test the changes, access the mongo shell using the administrative user you have previously created:
+```
+mongo -u mongoAdmin -p --authenticationDatabase admin
+```
+
+
+Links:
+https://www.mongodb.com/docs/v7.0/tutorial/install-mongodb-on-debian/
+https://linuxize.com/post/how-to-install-mongodb-on-debian-10/
+
+
+
