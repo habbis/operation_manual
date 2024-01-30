@@ -268,11 +268,10 @@ To create a inventory.
 vim /etc/puppetlabs/code/environments/dev/manifests/site.pp
 ```
 
-Then you have new environtments if you have added nothing to production
-then there is no config that will make problem for you.
+Then you have new environtments.
 
 
-What module paths  dev environment have access by default is these.
+What module paths dev environment have access by default is these.
 ````
 /etc/puppetlabs/code/environments/dev/modules
 /etc/puppetlabs/code/modules
