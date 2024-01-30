@@ -305,14 +305,14 @@ I like to add my custom classes to
 To install puppet class from puppet [forge](https://forge.puppet.com/).
 
 ```
-puppet module uninstall puppetlabs-accounts
+puppet module install puppetlabs-accounts
   
 ```
 
 Then to remove.
 
 ```
-puppet module uninstall ploperations-account
+puppet module uninstall puppetlabs-accounts
 ```
 
 To list installed modules.
