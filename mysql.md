@@ -70,10 +70,10 @@ create user `gogs`@localhost identified by 'yourpass';
 ```
 for remote login you can set with ip or blank for a cluster 
 ```
-create user `gogs`@ identified by 'yourpass';
+create user 'gogs'@ identified by 'yourpass';
 ```
 ```
-create user `gogs`@10.2.1.2 identified by 'yourpass';
+create user 'gogs@10.2.1.2' identified by 'yourpass';
 ```
 
 Delete user
