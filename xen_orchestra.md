@@ -12,7 +12,12 @@ Follow the debian installer.
 
 Install guest tools mount guest tool iso in the vm console.
 
+![console](.pics/xen_orchestra_vm_console.png)
+
+```
 Home --> VMs --> yourtempalte --> Console --> select disk add guest-tools.iso
+```
+
 
 Then on the vm mount sr0 ignore warnings.
 ```
