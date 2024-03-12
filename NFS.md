@@ -77,7 +77,7 @@ $ systemctl enable nfs-server.service
 $ systemctl start nfs-server.service
 
 ```
-debian/Ubuntu 18.04: 
+debian/Ubuntu 
 
 ```
 $ apt install nfs-kernel-server
