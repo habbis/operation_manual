@@ -41,7 +41,7 @@ $ vi /etc/exports
 Add this 
 
 
-its best not use no_root_squash use instead all_squash
+its best not use root_squash use instead no_root_squash or all_squash
 
 ```
 /yourshare          192.168.1.101(rw,sync,no_root_squash,no_subtree_check)
