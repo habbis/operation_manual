@@ -5,12 +5,12 @@
 
 How to generate csr and private key for buying ssl cert.
 
-
+```
 openssl req -new -newkey rsa:2048 -nodes -keyout yourdomain.com.key -out yourdomain.com.csr
-
-
+```
+```
 openssl req -new -newkey rsa:2048 -nodes -keyout osl.yourdomain.com.key -out osl.yourdomain.com.csr
-
+```
 ```
 
 Generating a RSA private key
