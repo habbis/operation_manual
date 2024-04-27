@@ -33,9 +33,7 @@ Run the install script and reboot.
 Then install these pacakges for cloud-init image.
 
 ```
-cloud-init
-cloud-guest-utils
-resolvconf
+sudo apt install -y cloud-init cloud-guest-utils resolvconf sudo 
 ```
 
 Also add extra cloud-init config got this from ubuntu server cloud images.
