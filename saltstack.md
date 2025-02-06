@@ -77,7 +77,7 @@ You can git clone salt states.
 git clone github.com/youruser/homelab_salt
 ```
 
-kkkkkkkCreate dir for test.
+Create dir for test.
 ```
 mkdir -p /srv/salt/test
 ```
@@ -162,7 +162,7 @@ systemctl status salt-minion.service
 Login to salt master and check if you can see keys [link to doc](https://docs.saltproject.io/salt/install-guide/en/latest/topics/accept-keys.html#accept-keys).
 ```
 salt-key
-``
+```
 output
 ```
 Unaccepted Keys:
@@ -225,8 +225,6 @@ vim /srv/salt/test/salt_minion/init.sls
 ```
 
 ```
-
-
 # Make sure salt is installed and running
 #
 salt_master:
