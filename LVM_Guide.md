@@ -32,6 +32,11 @@ Declare another physical volume:
 $  pvcreate /dev/sda3
 ```
 
+Resize existing pv.
+```
+$  pvresize /dev/sda3
+```
+
 Then add the new PV to the VG that already exists:
 ```
 $ vgextend myVirtualGroup1 /dev/sda3
