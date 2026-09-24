@@ -8,3 +8,24 @@ They are using convoy to manage vps since they are using serial terminal the ope
 ```
 boot> set tty com0
 ```
+
+Then boot into the installer
+```
+boot> boot
+```
+
+Change shell to bash for user.
+
+First install bash
+```
+pkg_add -v bash
+```
+Change shell for root 
+```
+chsh -s /usr/local/bin/bash
+```
+
+Then change for user 
+```
+chsh -s /usr/local/bin/bash nixcraft
+```
